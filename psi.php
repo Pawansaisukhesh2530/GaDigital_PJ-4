@@ -133,9 +133,6 @@ $galleryImages = [
 
 <?php require_once 'includes/cta.php'; ?>
 
-<?php require_once 'includes/footer.php'; ?>
-<?php require_once 'includes/scripts.php'; ?>
-
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js" defer></script>
 <script>
     window.addEventListener('load', function () {
@@ -154,3 +151,6 @@ $galleryImages = [
         });
     });
 </script>
+
+<?php require_once 'includes/footer.php'; ?>
+<?php require_once 'includes/scripts.php'; ?>

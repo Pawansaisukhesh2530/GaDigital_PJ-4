@@ -53,7 +53,7 @@ $team = [
                     <h2>About Us</h2>
                 </div>
                 <p>Nani Electro Technics Pvt. Ltd. (NANI Transformers), established in 1995, is a trusted name in the design and manufacturing of high-quality transformers across capacities and configurations. Founded by Mr. S. Raghavendra Rao (B.Tech &ndash; EEE), a visionary with over four decades of experience in the transformer industry, the company has built a legacy of engineering excellence, reliability, and commitment.</p>
-                <p>Over the years, NANI Transformers has become a preferred supplier for leading industrial and infrastructure clients across India. From manufacturing robust oil-filled transformers to executing large-scale Railway Electrification Projects since 2003, our journey has been defined by quality, innovation, and an unwavering focus on customer satisfaction. With operations now expanding across 11 Indian states, we continue to power the nation&rsquo;s growth with superior technology and trusted performance.</p>
+                <p>Over the years, NANI Transformers has become a preferred supplier for leading industrial and infrastructure clients across India. From manufacturing robust oil-filled transformers to executing large-scale Railway Electrification Projects since 2003, our journey has been defined by quality, innovation, and an unwavering focus on customer satisfaction. With operations now expanding across <?php echo STAT_STATES_REACHED; ?> Indian states, we continue to power the nation&rsquo;s growth with superior technology and trusted performance.</p>
             </div>
 
             <!-- Right: Vision + Mission -->
@@ -124,7 +124,7 @@ $team = [
             <div class="timeline-card" data-animation="fadeIn">
                 <h4>Expanding Horizons</h4>
                 <span class="btn btn-primary">2003</span>
-                <p>With consistent innovation and an expanding customer base, NANI Transformers ventured into Railway Electrification Projects in 2003, marking a major milestone in its growth. Today, with operations spanning 11 states, the company has evolved into a key player supporting infrastructure, renewable, and industrial sectors with cutting-edge transformer technology.</p>
+                <p>With consistent innovation and an expanding customer base, NANI Transformers ventured into Railway Electrification Projects in 2003, marking a major milestone in its growth. Today, with operations spanning <?php echo STAT_STATES_REACHED; ?> states, the company has evolved into a key player supporting infrastructure, renewable, and industrial sectors with cutting-edge transformer technology.</p>
             </div>
             <div class="timeline-card" data-animation="fadeIn">
                 <h4>Innovating the Future</h4>
@@ -176,11 +176,21 @@ $team = [
                 <h3><?php echo $member['name']; ?></h3>
                 <p class="team-role"><?php echo $member['role']; ?></p>
                 <p class="team-bio"><?php echo $member['bio']; ?></p>
+                <?php
+                $memberSocials = [
+                    ['href' => SOCIAL_FACEBOOK, 'label' => 'Facebook', 'icon' => 'fab fa-facebook-f'],
+                    ['href' => SOCIAL_LINKEDIN, 'label' => 'LinkedIn', 'icon' => 'fab fa-linkedin-in'],
+                    ['href' => SOCIAL_TWITTER, 'label' => 'Twitter', 'icon' => 'fab fa-twitter'],
+                ];
+                $hasSocial = array_filter(array_column($memberSocials, 'href'));
+                ?>
+                <?php if ($hasSocial): ?>
                 <div class="team-social">
-                    <a href="<?php echo SOCIAL_FACEBOOK; ?>" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="<?php echo SOCIAL_LINKEDIN; ?>" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="<?php echo SOCIAL_TWITTER; ?>" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <?php foreach ($memberSocials as $s): if ($s['href'] === '') continue; ?>
+                    <a href="<?php echo $s['href']; ?>" aria-label="<?php echo $s['label']; ?>" rel="noopener"><i class="<?php echo $s['icon']; ?>"></i></a>
+                    <?php endforeach; ?>
                 </div>
+                <?php endif; ?>
             </div>
             <?php endforeach; ?>
         </div>
@@ -192,12 +202,12 @@ $team = [
     </div>
 </section>
 
-<!-- ============ TRUSTED BY 500+ ============ -->
+<!-- ============ TRUSTED CLIENTS ============ -->
 <section class="clients-section about-clients">
     <div class="container">
         <div class="clients-header">
             <span class="icon-bolt icon-bolt--red"><?php echo $bolt; ?></span>
-            <h2>Trusted by 500+ world-class brands and organizations of all sizes.</h2>
+            <h2>Trusted by <?php echo STAT_CLIENTS_SERVED; ?> world-class brands and organizations of all sizes.</h2>
         </div>
         <div class="clients-carousel">
             <div class="clients-track">

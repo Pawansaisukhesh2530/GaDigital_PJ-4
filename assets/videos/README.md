@@ -1,13 +1,23 @@
 # Videos
 
-The Projects page hero video (`projects-hero.mov`, ~114 MB) is **not committed**
-to this repository because it exceeds GitHub's 100 MB per-file limit.
+All four clips are hosted locally under `assets/videos/` in two formats:
 
-To run the site with the video:
+- `*.mp4` — H.264 + AAC, fast-start (moov before mdat). These are the
+  browser-compatible files referenced by the site and **should be committed**
+  to the repository (each is well under GitHub's 100 MB limit).
+- `*.mov` — the original QuickTime masters from the WordPress site (large,
+  up to ~114 MB). These are **git-ignored** and are NOT needed to run the
+  site; they are kept as source masters only.
 
-1. Place `projects-hero.mov` in this folder (`assets/videos/`), or
-2. Host it externally (CDN / object storage) and update the `<source>` URL in
-   `projects.php`, or
-3. Track large media with [Git LFS](https://git-lfs.com/).
+Usage in the site:
 
-`projects.php` references it at: `assets/videos/projects-hero.mov`.
+| Page            | File                          | Size  |
+|-----------------|-------------------------------|-------|
+| projects.php    | `assets/videos/projects-hero.mp4`     | ~23 MB |
+| gallery.php     | `assets/videos/Generator-Transformer.mp4` | ~1.3 MB |
+| gallery.php     | `assets/videos/Furnace-Transformer.mp4`   | ~0.8 MB |
+| gallery.php     | `assets/videos/Rectifier-Transformer.mp4` | ~6.8 MB |
+
+The `.htaccess` serves `video/mp4` MIME types so Chromium, Firefox, Safari
+and Edge can all play the clips. No external hosting or WordPress URLs are
+used.

@@ -8,12 +8,22 @@
                     <img src="<?php echo ASSETS_PATH; ?>/images/logo.svg" alt="Nani Transformers">
                 </a>
                 <p class="footer-description">Nani Transformers, a division of Nani Electro Technics Pvt. Ltd., has been powering industries across India since 1995 with reliable and high-performance transformer solutions. Our commitment to quality, innovation, and timely execution has earned the trust of leading industries and public sector organizations. At Nani Transformers, we continue to drive India's growth through excellence in engineering and electrification.</p>
+                <?php
+                $socials = [
+                    ['href' => SOCIAL_FACEBOOK, 'label' => 'Facebook', 'icon' => 'fab fa-facebook-f'],
+                    ['href' => SOCIAL_LINKEDIN, 'label' => 'LinkedIn', 'icon' => 'fab fa-linkedin-in'],
+                    ['href' => SOCIAL_TWITTER, 'label' => 'X', 'icon' => 'fab fa-twitter'],
+                    ['href' => SOCIAL_WHATSAPP, 'label' => 'WhatsApp', 'icon' => 'fab fa-whatsapp'],
+                ];
+                $hasSocial = array_filter(array_column($socials, 'href'));
+                ?>
+                <?php if ($hasSocial): ?>
                 <div class="footer-social">
-                    <a href="<?php echo SOCIAL_FACEBOOK; ?>" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="<?php echo SOCIAL_LINKEDIN; ?>" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="<?php echo SOCIAL_TWITTER; ?>" aria-label="X"><i class="fab fa-twitter"></i></a>
-                    <a href="<?php echo SOCIAL_WHATSAPP; ?>" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <?php foreach ($socials as $s): if ($s['href'] === '') continue; ?>
+                    <a href="<?php echo $s['href']; ?>" aria-label="<?php echo $s['label']; ?>" rel="noopener"><i class="<?php echo $s['icon']; ?>"></i></a>
+                    <?php endforeach; ?>
                 </div>
+                <?php endif; ?>
             </div>
 
             <!-- Column 2: Quick Links (20%) -->

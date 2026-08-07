@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Private / application directories
+Disallow: /handlers/
+Disallow: /includes/
+Disallow: /config/
+Disallow: /storage/
+Disallow: /uploads/
+Disallow: /lib/
+
+Sitemap: https://nanitransformers.com/sitemap.xml

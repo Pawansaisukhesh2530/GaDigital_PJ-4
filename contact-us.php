@@ -62,6 +62,8 @@ $status = $_GET['status'] ?? '';
             <?php endif; ?>
 
             <form action="handlers/contact-form.php" method="POST" data-validate>
+                <?php echo csrf_field(); ?>
+                <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
                 <div class="form-row">
                     <div class="form-group">
                         <label class="form-label">First Name <span class="req">*</span></label>

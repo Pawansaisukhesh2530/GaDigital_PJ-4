@@ -15,7 +15,7 @@ require_once 'includes/header.php';
 
 <section class="service-page" style="padding: 5em 0 7em;">
     <div class="container">
-        <h2 class="section-title" style="margin-bottom: 40px;">Our featured projects</h2>
+        <h2 class="section-title" style="margin-bottom: 40px;">Our featured services</h2>
         <div class="services-listing-grid">
             <div class="service-listing-card" data-animation="fadeInUp">
                 <h3>Repairing</h3>

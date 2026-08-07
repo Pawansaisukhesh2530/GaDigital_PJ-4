@@ -1,6 +1,5 @@
 <?php
 require_once 'includes/config.php';
-$pageTitle = '';
 $pageDescription = 'Nani Transformers - Over 30 years of excellence in transformer design, manufacturing, and electrification across India\'s major industries.';
 
 // Preload only the banner actually used at this viewport so the hero
@@ -142,15 +141,15 @@ $clientLogos = array_merge(
         <div class="stats-counters" data-animation="fadeIn">
             <div class="counter-item">
                 <div class="counter-title">Railway Projects Completed</div>
-                <div class="counter-number-wrap"><span class="counter" data-target="40">0</span>+</div>
+                <div class="counter-number-wrap"><span class="counter" data-target="<?php echo (int) STAT_PROJECTS_COMPLETED; ?>">0</span>+</div>
             </div>
             <div class="counter-item">
                 <div class="counter-title">Railway Projects Ongoing</div>
-                <div class="counter-number-wrap"><span class="counter" data-target="30">0</span>+</div>
+                <div class="counter-number-wrap"><span class="counter" data-target="<?php echo (int) STAT_PROJECTS_ONGOING; ?>">0</span>+</div>
             </div>
             <div class="counter-item">
                 <div class="counter-title">Transformer Clients served</div>
-                <div class="counter-number-wrap"><span class="counter" data-target="400">0</span>+</div>
+                <div class="counter-number-wrap"><span class="counter" data-target="<?php echo (int) STAT_CLIENTS_SERVED; ?>">0</span>+</div>
             </div>
         </div>
     </div>
@@ -266,7 +265,7 @@ $clientLogos = array_merge(
                 <span class="icon-bolt icon-bolt--red"><?php echo $bolt; ?></span>
                 <h2>Projects We Completed</h2>
             </div>
-            <p class="projects-intro">Nani Transformers has successfully executed <strong>39+ projects</strong> with over <strong>30 ongoing</strong>, serving industries and infrastructure across India.</p>
+            <p class="projects-intro">Nani Transformers has successfully executed <strong><?php echo STAT_PROJECTS_COMPLETED; ?> projects</strong> with over <strong><?php echo STAT_PROJECTS_ONGOING; ?> ongoing</strong>, serving industries and infrastructure across India.</p>
             <div class="projects-image masked-image">
                 <img src="<?php echo ASSETS_PATH; ?>/images/projects-we-completed.jpg" alt="Completed railway electrification project" width="768" height="512" loading="lazy" decoding="async">
             </div>
@@ -276,7 +275,7 @@ $clientLogos = array_merge(
             <div class="project-card" data-animation="fadeInRight">
                 <div class="project-card-body">
                     <h5>Railway Projects</h5>
-                    <p>Our major contributions include <strong>Railway Electrification Projects</strong> spanning <strong>8 railway divisions across 10 states</strong>, covering:</p>
+                    <p>Our major contributions include <strong>Railway Electrification Projects</strong> spanning <strong><?php echo STAT_RAILWAY_DIVISIONS; ?> railway divisions across <?php echo STAT_STATES_REACHED; ?> states</strong>, covering:</p>
                     <ul>
                         <li><strong>132kV / 220kV Traction Substations</strong></li>
                         <li><strong>25kV Overhead Electrification (OHE)</strong></li>

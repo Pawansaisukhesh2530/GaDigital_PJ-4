@@ -24,14 +24,6 @@ $openings = [
         'location' => 'Hyderabad',
         'note' => 'Excellent opportunity for freshers to kick start their career in Transformers industry',
     ],
-    [
-        'title' => 'General Manager (Service Marketing) south India',
-        'age' => '20-24',
-        'qualification' => 'Bachelor of Engineering',
-        'experience' => '0',
-        'location' => 'Hyderabad',
-        'note' => 'Excellent opportunity for freshers to kick start their career in Transformers industry',
-    ],
 ];
 
 $status = $_GET['status'] ?? '';
@@ -79,7 +71,7 @@ $status = $_GET['status'] ?? '';
     <div class="container">
         <div class="careers-apply-grid">
             <div class="careers-apply-form" data-animation="fadeInUp">
-                <h2>Haven't found what you're looking for ?</h2>
+                <h2>Haven&rsquo;t found what you&rsquo;re looking for?</h2>
 
                 <?php if ($status === 'success'): ?>
                     <div class="form-alert form-alert--success">Thank you! Your application has been received. We'll be in touch soon.</div>
@@ -88,6 +80,8 @@ $status = $_GET['status'] ?? '';
                 <?php endif; ?>
 
                 <form action="handlers/career-form.php" method="POST" enctype="multipart/form-data" data-validate>
+                    <?php echo csrf_field(); ?>
+                    <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="form-row">
                         <div class="form-group">
                             <input type="text" name="first_name" class="form-control" placeholder="Name" required>
@@ -114,7 +108,7 @@ $status = $_GET['status'] ?? '';
                                 <span class="choose-btn">CHOOSE FILE</span>
                                 <span class="file-name">No file chosen</span>
                             </label>
-                            <input type="file" name="resume" accept=".pdf,.doc,.docx">
+                            <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">SUBMIT</button>
@@ -133,20 +127,3 @@ $status = $_GET['status'] ?? '';
 require_once 'includes/footer.php';
 require_once 'includes/scripts.php';
 ?>
-
-<script>
-    // Single-open accordion (only one opening expanded at a time),
-    // matching the original careers page behaviour.
-    (function () {
-        var items = Array.prototype.slice.call(document.querySelectorAll('.job-accordion .job-item'));
-        items.forEach(function (item) {
-            item.addEventListener('toggle', function () {
-                if (item.open) {
-                    items.forEach(function (other) {
-                        if (other !== item) other.open = false;
-                    });
-                }
-            });
-        });
-    })();
-</script>

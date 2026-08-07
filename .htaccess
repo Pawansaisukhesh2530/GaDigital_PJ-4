@@ -33,6 +33,16 @@ RewriteRule ^(.*)/$ /$1 [L,R=301]
     ExpiresByType application/javascript "access plus 1 month"
     ExpiresByType font/woff2 "access plus 1 year"
     ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType video/mp4 "access plus 1 month"
+    ExpiresByType video/quicktime "access plus 1 month"
+</IfModule>
+
+# Correct MIME types (some servers misreport .mp4/.mov)
+<IfModule mod_mime.c>
+    AddType video/mp4 .mp4 .m4v
+    AddType video/quicktime .mov
+    AddType font/woff2 .woff2
+    AddType font/woff .woff
 </IfModule>
 
 # Gzip compression
@@ -53,3 +63,16 @@ Options -Indexes
     Order Allow,Deny
     Deny from all
 </FilesMatch>
+
+# Protect application configuration from direct web access
+<IfModule mod_authz_core.c>
+    <FilesMatch "^(config\.php|smtp\.php)$">
+        Require all denied
+    </FilesMatch>
+</IfModule>
+<IfModule !mod_authz_core.c>
+    <FilesMatch "^(config\.php|smtp\.php)$">
+        Order Allow,Deny
+        Deny from all
+    </FilesMatch>
+</IfModule>

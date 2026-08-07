@@ -126,39 +126,4 @@ function productCard($p, $range, $volt, $eager = false) {
 
 <?php require_once 'includes/footer.php'; ?>
 
-<script>
-(function () {
-    var tabs = Array.prototype.slice.call(document.querySelectorAll('.product-tab-btn'));
-    if (!tabs.length) return;
-
-    function select(tab) {
-        tabs.forEach(function (t) {
-            var selected = (t === tab);
-            t.setAttribute('aria-selected', selected ? 'true' : 'false');
-            t.tabIndex = selected ? 0 : -1;
-            var panel = document.getElementById(t.getAttribute('aria-controls'));
-            if (panel) panel.hidden = !selected;
-        });
-    }
-
-    tabs.forEach(function (tab) {
-        tab.addEventListener('click', function () { select(tab); });
-    });
-
-    // Left/Right arrow support, per WAI-ARIA tabs pattern
-    document.querySelector('.product-tablist').addEventListener('keydown', function (e) {
-        var i = tabs.indexOf(document.activeElement);
-        if (i === -1) return;
-        var next = null;
-        if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
-        if (e.key === 'ArrowLeft')  next = tabs[(i - 1 + tabs.length) % tabs.length];
-        if (next) {
-            e.preventDefault();
-            select(next);
-            next.focus();
-        }
-    });
-})();
-</script>
-
 <?php require_once 'includes/scripts.php'; ?>

@@ -7,6 +7,7 @@
 
     var TABLET_BREAKPOINT = 1024;
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -209,78 +210,198 @@
         }
 
         /* ------------------------------------------------
-           Product tabs
+           Product tabs (Products page)
+           WAI-ARIA tabs pattern: arrow-key navigation,
+           aria-selected / tabindex / hidden panels.
            ------------------------------------------------ */
-        var tabs = document.querySelectorAll('.product-tab');
-        var panels = document.querySelectorAll('.tab-content');
+        var tabs = Array.prototype.slice.call(document.querySelectorAll('.product-tab-btn'));
+        if (tabs.length) {
+            var tablist = document.querySelector('.product-tablist');
 
-        tabs.forEach(function (tab) {
-            tab.addEventListener('click', function () {
-                var targetId = tab.getAttribute('data-tab');
+            function selectTab(tab) {
+                tabs.forEach(function (t) {
+                    var selected = (t === tab);
+                    t.setAttribute('aria-selected', selected ? 'true' : 'false');
+                    t.tabIndex = selected ? 0 : -1;
+                    var panel = document.getElementById(t.getAttribute('aria-controls'));
+                    if (panel) panel.hidden = !selected;
+                });
+            }
 
-                tabs.forEach(function (t) { t.classList.remove('active'); });
-                panels.forEach(function (p) { p.classList.remove('active'); });
+            tabs.forEach(function (tab) {
+                tab.addEventListener('click', function () { selectTab(tab); });
+            });
 
-                tab.classList.add('active');
-                var panel = document.getElementById(targetId);
-                if (panel) panel.classList.add('active');
+            if (tablist) {
+                tablist.addEventListener('keydown', function (e) {
+                    var i = tabs.indexOf(document.activeElement);
+                    if (i === -1) return;
+                    var next = null;
+                    if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+                    if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+                    if (next) {
+                        e.preventDefault();
+                        selectTab(next);
+                        next.focus();
+                    }
+                });
+            }
+        }
+
+        /* ------------------------------------------------
+           Careers job accordion (single-open)
+           ------------------------------------------------ */
+        document.querySelectorAll('.job-accordion .job-item').forEach(function (item) {
+            item.addEventListener('toggle', function () {
+                if (item.open) {
+                    document.querySelectorAll('.job-accordion .job-item').forEach(function (other) {
+                        if (other !== item) other.open = false;
+                    });
+                }
             });
         });
 
         /* ------------------------------------------------
-           Form validation
+           Form validation + AJAX submission
            ------------------------------------------------ */
-        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        function setFieldError(field, isError) {
+            if (!field) return;
+            field.style.borderColor = isError ? '#D31F0D' : '';
+        }
+
+        function showFormMessage(msg, type, text) {
+            if (!msg) return;
+            msg.className = 'form-message ' + type;
+            msg.textContent = text;
+            msg.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
+        }
+
+        function validateForm(form) {
+            var valid = true;
+            var firstInvalid = null;
+
+            form.querySelectorAll('.form-control').forEach(function (field) {
+                if (field.hasAttribute('required') && !field.value.trim()) {
+                    valid = false;
+                    setFieldError(field, true);
+                    if (!firstInvalid) firstInvalid = field;
+                } else {
+                    setFieldError(field, false);
+                }
+            });
+
+            form.querySelectorAll('input[type="email"]').forEach(function (field) {
+                if (field.value && !EMAIL_PATTERN.test(field.value)) {
+                    valid = false;
+                    setFieldError(field, true);
+                    if (!firstInvalid) firstInvalid = field;
+                }
+            });
+
+            // Phone (optional on some forms, required on others via "required")
+            form.querySelectorAll('input[type="tel"]').forEach(function (field) {
+                var value = field.value.trim();
+                if (value && !/^[0-9+\-\s()]{6,20}$/.test(value)) {
+                    valid = false;
+                    setFieldError(field, true);
+                    if (!firstInvalid) firstInvalid = field;
+                }
+            });
+
+            // Resume: extension + size client-side check
+            form.querySelectorAll('input[type="file"]').forEach(function (field) {
+                var file = field.files && field.files[0];
+                if (file) {
+                    var okExt = /\.(pdf|doc|docx)$/i.test(file.name);
+                    if (!okExt || file.size > 5 * 1024 * 1024) {
+                        valid = false;
+                        setFieldError(field, true);
+                        if (!firstInvalid) firstInvalid = field;
+                    }
+                }
+            });
+
+            if (firstInvalid) firstInvalid.focus();
+            return valid;
+        }
+
+        function applyServerErrors(form, errors) {
+            form.querySelectorAll('.form-control').forEach(function (field) {
+                setFieldError(field, false);
+            });
+            Object.keys(errors || {}).forEach(function (name) {
+                var field = form.querySelector('[name="' + name + '"]');
+                setFieldError(field, true);
+            });
+        }
 
         document.querySelectorAll('form[data-validate]').forEach(function (form) {
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
-                var valid = true;
-                var firstInvalid = null;
 
-                form.querySelectorAll('[required]').forEach(function (field) {
-                    if (!field.value.trim()) {
-                        valid = false;
-                        field.style.borderColor = '#D31F0D';
-                        if (!firstInvalid) firstInvalid = field;
-                    } else {
-                        field.style.borderColor = '';
-                    }
-                });
-
-                form.querySelectorAll('input[type="email"]').forEach(function (field) {
-                    if (field.value && !emailPattern.test(field.value)) {
-                        valid = false;
-                        field.style.borderColor = '#D31F0D';
-                        if (!firstInvalid) firstInvalid = field;
-                    }
-                });
-
-                var msg = form.querySelector('.form-message');
-
-                if (!valid) {
-                    if (msg) {
-                        msg.className = 'form-message error';
-                        msg.textContent = 'Please complete the highlighted fields.';
-                    }
-                    if (firstInvalid) firstInvalid.focus();
+                // Prevent duplicate submissions
+                if (form.getAttribute('data-submitting') === '1') return;
+                if (!validateForm(form)) {
+                    showFormMessage(form.querySelector('.form-message'), 'error', 'Please complete the highlighted fields.');
                     return;
                 }
 
-                if (msg) {
-                    msg.className = 'form-message success';
-                    msg.textContent = 'Thank you! Your message has been sent successfully.';
-                }
-                form.reset();
-                form.querySelectorAll('.file-name').forEach(function (el) {
-                    el.textContent = 'No file chosen';
+                form.setAttribute('data-submitting', '1');
+                var btn = form.querySelector('[type="submit"]');
+                if (btn) btn.disabled = true;
+
+                var fd = new FormData(form);
+                var msg = form.querySelector('.form-message');
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: fd,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json'
+                    }
+                }).then(function (res) {
+                    return res.text().then(function (text) {
+                        var data = null;
+                        try { data = JSON.parse(text); } catch (e) {}
+                        if (!data) {
+                            var start = text.indexOf('{');
+                            var end = text.lastIndexOf('}');
+                            if (start >= 0 && end > start) {
+                                try { data = JSON.parse(text.slice(start, end + 1)); } catch (e2) {}
+                            }
+                        }
+                        return { status: res.status, data: data };
+                    });
+                }).then(function (r) {
+                    var data = r.data;
+                    if (data && data.ok) {
+                        showFormMessage(msg, 'success', data.message || 'Thank you! Your submission has been received.');
+                        form.reset();
+                        form.querySelectorAll('.file-name').forEach(function (el) {
+                            el.textContent = 'No file chosen';
+                        });
+                    } else if (data && data.errors) {
+                        applyServerErrors(form, data.errors);
+                        showFormMessage(msg, 'error', data.message || 'Please correct the highlighted fields.');
+                    } else if (data && data.message) {
+                        showFormMessage(msg, 'error', data.message || 'Something went wrong. Please try again.');
+                    } else {
+                        showFormMessage(msg, 'error', 'Something went wrong. Please try again.');
+                    }
+                }).catch(function () {
+                    showFormMessage(msg, 'error', 'Network error. Please check your connection and try again.');
+                }).finally(function () {
+                    form.setAttribute('data-submitting', '');
+                    if (btn) btn.disabled = false;
                 });
             });
         });
 
+        // Clear error highlight as the user types
         document.querySelectorAll('.form-control').forEach(function (field) {
             field.addEventListener('input', function () {
-                field.style.borderColor = '';
+                setFieldError(field, false);
             });
         });
 

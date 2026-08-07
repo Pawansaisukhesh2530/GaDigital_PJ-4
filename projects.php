@@ -27,12 +27,13 @@ $bolt = '<svg aria-hidden="true" viewBox="0 0 320 512" xmlns="http://www.w3.org/
                         <h6>HOW IT WORKS</h6>
                     </div>
                     <h2>Projects We Completed</h2>
-                    <p>Nani Transformers has successfully executed <strong>40+ projects</strong> with over <strong>30 ongoing</strong>, serving industries and infrastructure across India.</p>
-                    <p>Over the years <strong>NANI ELECTRO TECHNICS PVT. LTD.</strong> has expanded its operations to 8 Railway Divisions spread across 10+states.</p>
+                    <p>Nani Transformers has successfully executed <strong><?php echo STAT_PROJECTS_COMPLETED; ?> projects</strong> with over <strong><?php echo STAT_PROJECTS_ONGOING; ?> ongoing</strong>, serving industries and infrastructure across India.</p>
+                    <p>Over the years <strong>NANI ELECTRO TECHNICS PVT. LTD.</strong> has expanded its operations to <?php echo STAT_RAILWAY_DIVISIONS; ?> Railway Divisions spread across <?php echo STAT_STATES_REACHED; ?> states.</p>
                 </div>
                 <figure class="projects-hero-media">
-                    <video controls preload="metadata" class="projects-video" poster="<?php echo ASSETS_PATH; ?>/images/projects-we-completed.jpg">
-                        <source src="<?php echo ASSETS_PATH; ?>/videos/projects-hero.mov" type="video/mp4">
+                    <video controls playsinline preload="metadata" class="projects-video" poster="<?php echo ASSETS_PATH; ?>/images/projects-we-completed.jpg">
+                        <source src="<?php echo ASSETS_PATH; ?>/videos/projects-hero.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
                     </video>
                 </figure>
             </div>

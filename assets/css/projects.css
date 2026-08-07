@@ -80,16 +80,6 @@
     object-fit: cover;
 }
 
-.projects-hero-img {
-    margin: 0;
-}
-
-.projects-hero-img img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
 /* Right column: 3 equal-height stacked cards (grid rows) to mirror the
    original where all three cards share one height and fill the column. */
 .projects-right {
@@ -491,14 +481,6 @@
     margin-bottom: 8px;
 }
 
-.order-text .order-sub {
-    font-family: var(--font-primary);
-    font-size: 16px;
-    font-weight: 700;
-    color: #D31F0D;
-    margin-bottom: 10px;
-}
-
 .order-text p {
     font-family: var(--font-body);
     font-size: 15px;
@@ -576,26 +558,6 @@
     object-fit: contain;
 }
 
-/* CTA */
-.project-cta {
-    margin-top: 40px;
-    padding: 28px;
-    background: var(--color-bg-light);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-}
-
-.project-cta p {
-    font-family: var(--font-body);
-    font-size: 16px;
-    color: var(--color-body);
-    margin: 0;
-    flex: 1 1 320px;
-}
-
 /* ================================================
    RESPONSIVE
    ================================================ */
@@ -660,10 +622,6 @@
     .railway-client-logo {
         width: 110px;
         height: 64px;
-    }
-
-    .project-cta {
-        padding: 20px;
     }
 }
 

@@ -28,9 +28,7 @@
 /* Elementor button size scale */
 .btn-xs { padding: 10px 20px; }
 .btn-sm { padding: 12px 24px; }
-.btn-md { padding: 15px 30px; }
 .btn-lg { padding: 20px 40px; }
-.btn-xl { padding: 25px 50px; }
 
 .btn-block {
     display: flex;
@@ -50,30 +48,6 @@
     border-color: #FCD900;
 }
 
-.btn-secondary {
-    background-color: #760000;
-    color: #FFFFFF;
-    border: 0 solid #760000;
-}
-
-.btn-secondary:hover,
-.btn-secondary:focus {
-    background-color: #FCD900;
-    color: #000000;
-}
-
-.btn-outline {
-    background-color: transparent;
-    color: #FFFFFF;
-    border: 2px solid #FFFFFF;
-}
-
-.btn-outline:hover,
-.btn-outline:focus {
-    background-color: #FFFFFF;
-    color: #D31F0D;
-}
-
 .btn-outline-dark {
     background-color: transparent;
     color: #222334;
@@ -84,34 +58,4 @@
 .btn-outline-dark:focus {
     background-color: #222334;
     color: #FFFFFF;
-}
-
-/* Read More Link */
-.read-more {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--btn-font);
-    font-size: var(--btn-size);
-    font-weight: var(--btn-weight);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #D31F0D;
-    transition: all var(--transition-fast);
-}
-
-.read-more:hover {
-    color: #760000;
-}
-
-.read-more::after {
-    content: '\f061';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    font-size: 10px;
-    transition: transform var(--transition-fast);
-}
-
-.read-more:hover::after {
-    transform: translateX(5px);
 }

@@ -1,8 +1,7 @@
-# Large media that exceeds GitHub's 100MB per-file limit.
-# The projects hero video must be hosted separately or via Git LFS.
+# Large QuickTime source files that exceed GitHub's 100MB per-file limit.
+# The browser-compatible .mp4 encodes ARE committed (they are needed by
+# projects.php and gallery.php).
 assets/videos/*.mov
-assets/videos/*.mp4
-assets/videos/*.webm
 
 # OS / editor junk
 Thumbs.db
@@ -11,3 +10,9 @@ Desktop.ini
 desktop.ini
 .DS_Store
 *.tmp
+
+# Local runtime artifacts
+config/smtp.php
+storage/logs/email.log
+storage/sessions/*
+uploads/resumes/*

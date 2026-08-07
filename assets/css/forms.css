@@ -127,3 +127,14 @@ textarea.form-control {
     border: 1px solid #f5c6cb;
     display: block;
 }
+
+/* Honeypot: hidden from humans, visible to bots */
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+}

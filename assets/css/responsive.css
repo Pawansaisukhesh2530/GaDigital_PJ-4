@@ -6,17 +6,6 @@
    ================================================ */
 
 /* ------------------------------------------------
-   Visibility utilities
-   ------------------------------------------------ */
-.desktop-only { display: block; }
-.mobile-only  { display: none; }
-
-@media (max-width: 767px) {
-    .desktop-only { display: none !important; }
-    .mobile-only  { display: block !important; }
-}
-
-/* ------------------------------------------------
    Global overflow guards
    Nothing should ever scroll sideways.
    ------------------------------------------------ */
@@ -66,13 +55,11 @@ p, li, a, h1, h2, h3, h4, h5, h6 {
    ------------------------------------------------ */
 @media (hover: none) and (pointer: coarse) {
     .btn,
-    .read-more,
     .footer-social a,
     .footer-links a,
     .footer-contact a,
     .nav-link,
-    .dropdown-menu li a,
-    .product-tab {
+    .dropdown-menu li a {
         min-height: 44px;
         display: inline-flex;
         align-items: center;
@@ -102,76 +89,19 @@ p, li, a, h1, h2, h3, h4, h5, h6 {
    .page-banner rules in layout.css (min-height based, no padding). */
 
 /* ------------------------------------------------
-   Product grid (products page)
-   ------------------------------------------------ */
-@media (max-width: 1024px) {
-    .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
-}
-
-@media (max-width: 576px) {
-    .products-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .product-card .product-image {
-        height: 200px;
-    }
-}
-
-/* Product tabs */
-@media (max-width: 767px) {
-    .product-tabs {
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .product-tabs {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .product-tab {
-        justify-content: center;
-        text-align: center;
-    }
-}
-
-/* ------------------------------------------------
    Services grid (services page)
    ------------------------------------------------ */
 @media (max-width: 767px) {
     .services-grid {
         grid-template-columns: 1fr;
     }
-
-    .service-card {
-        padding: 24px;
-    }
 }
 
 /* ------------------------------------------------
    Service / product detail two-column layout
    ------------------------------------------------ */
-@media (max-width: 1024px) {
-    .service-detail-content {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
-}
-
 @media (max-width: 767px) {
-    .service-detail { padding: 40px 0; }
-
     .features-list {
-        grid-template-columns: 1fr;
-    }
-
-    .product-gallery {
         grid-template-columns: 1fr;
     }
 }
@@ -183,21 +113,12 @@ p, li, a, h1, h2, h3, h4, h5, h6 {
     .gallery-video-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
 }
 
 @media (max-width: 767px) {
     .gallery-video-grid {
         grid-template-columns: 1fr;
         gap: 16px;
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
     }
 }
 
@@ -224,8 +145,6 @@ p, li, a, h1, h2, h3, h4, h5, h6 {
    ------------------------------------------------ */
 @media (max-width: 767px) {
     .careers-section { padding: 40px 0; }
-
-    .job-listing { padding: 16px 18px; }
 }
 
 

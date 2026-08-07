@@ -10,11 +10,6 @@
     padding: 0 15px;
 }
 
-.container-fluid {
-    width: 100%;
-    padding: 0 15px;
-}
-
 /* Section Styles */
 section {
     padding: 80px 0;
@@ -29,16 +24,6 @@ section {
     text-align: center;
     margin-bottom: 40px;
     color: var(--color-dark-heading);
-}
-
-.section-subtitle {
-    font-family: var(--font-primary);
-    font-size: var(--h6-size);
-    font-weight: var(--h6-weight);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--color-red-dark);
-    margin-bottom: 8px;
 }
 
 /* Page Banner - shared across ALL inner pages.
@@ -103,35 +88,4 @@ section {
     .page-banner h1 {
         font-size: 28px;
     }
-}
-
-/* Background Variations */
-.bg-light {
-    background-color: var(--color-bg-light);
-}
-
-.bg-dark {
-    background-color: var(--color-dark);
-}
-
-/* Text Alignment */
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
-
-/* Flex Utilities */
-.flex {
-    display: flex;
-}
-
-.flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.flex-between {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
