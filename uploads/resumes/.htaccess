@@ -1,0 +1,18 @@
+# Protect uploaded resumes from direct HTTP access.
+# Files are only readable via the server-side email process (attachments),
+# never downloaded through the web.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
+
+# Never execute any script from this directory.
+<FilesMatch "\.(php|php\d|phtml|pht|cgi|pl|py|sh|asp|aspx|jsp)$">
+    Require all denied
+</FilesMatch>
+
+# No directory listing.
+Options -Indexes

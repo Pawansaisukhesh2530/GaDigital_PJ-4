@@ -54,6 +54,54 @@ project/
 4. Optional: set SMTP values via environment variables instead of the file
    (see `config/smtp.example.php` for the supported names).
 
+## Docker (Quick Start)
+
+The project is fully containerized (PHP 8.2 + Apache), mirroring the Project 2
+setup. Anyone can clone the repository and run the site with a single command.
+
+### Requirements
+
+- Docker Desktop installed and running
+
+### Build
+
+```
+docker compose build
+```
+
+### Run
+
+```
+docker compose up
+```
+
+### Stop
+
+```
+docker compose down
+```
+
+### Rebuild (after dependency/config changes)
+
+```
+docker compose up --build
+```
+
+The application will be available at: **http://localhost:8080**
+
+Notes:
+
+- The project directory is bind-mounted into the container, so code changes
+  are reflected immediately during development.
+- `storage/` and `uploads/` are named volumes: session files, email logs and
+  uploaded resumes persist across container restarts and stay writable by Apache.
+- Mail defaults to the `log` driver (writes to `storage/logs/email.log`), so the
+  contact and careers forms work out of the box. To send real emails, pass SMTP
+  environment variables — e.g. `MAIL_DRIVER=smtp SMTP_HOST=smtp.gmail.com
+  SMTP_PORT=587 SMTP_USERNAME=... SMTP_PASSWORD=... docker compose up`.
+- The container reports `healthy` once the homepage responds with HTTP 200
+  (checked automatically every 30 seconds).
+
 ## Email Configuration
 
 Emails are sent through `lib/Mailer.php` (PHPMailer). Settings are resolved in

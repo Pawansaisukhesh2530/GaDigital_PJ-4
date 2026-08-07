@@ -1,0 +1,39 @@
+# ============================================================
+# Nani Transformers - Project 4 Docker Compose
+# Build + run the PHP 8.2 / Apache container.
+#   docker compose up --build
+# Site: http://localhost:8080
+# ============================================================
+
+services:
+  web:
+    build: .
+    container_name: ga-digital-pj4
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      PORT: "80"
+      # SMTP is fully configurable via environment variables (env > config/smtp.php > defaults).
+      # Leave unset to fall back to config/smtp.php. MAIL_DRIVER defaults to "log" so the
+      # forms work out of the box; set MAIL_DRIVER=smtp (with SMTP_* below) for real delivery.
+      MAIL_DRIVER: ${MAIL_DRIVER:-log}
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-}
+      SMTP_USERNAME: ${SMTP_USERNAME:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      SMTP_SECURE: ${SMTP_SECURE:-}
+      SMTP_FROM_EMAIL: ${SMTP_FROM_EMAIL:-}
+      SMTP_FROM_NAME: ${SMTP_FROM_NAME:-}
+      SMTP_TO_CONTACT: ${SMTP_TO_CONTACT:-}
+      SMTP_TO_CAREERS: ${SMTP_TO_CAREERS:-}
+    volumes:
+      # Mount the project for live development (code changes reflect immediately).
+      - .:/var/www/html
+      # Named volumes keep runtime data writable by www-data and persist across restarts.
+      - app-storage:/var/www/html/storage
+      - app-uploads:/var/www/html/uploads
+
+volumes:
+  app-storage:
+  app-uploads:

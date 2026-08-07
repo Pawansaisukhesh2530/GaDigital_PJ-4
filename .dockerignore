@@ -1,0 +1,38 @@
+# Git
+.git
+.gitignore
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs, temp, backups
+*.log
+*.tmp
+*.bak
+*.orig
+
+# Dependencies (PHPMailer is bundled; composer is not used)
+vendor/
+node_modules/
+
+# Secrets - never copy real credentials into the image
+config/smtp.php
+
+# Runtime data (regenerated at runtime by the container).
+# Security placeholder files (.htaccess / index.html) are kept.
+storage/sessions/*
+storage/logs/*.log
+uploads/resumes/*
+!uploads/resumes/.htaccess
+!uploads/resumes/index.html
+
+# Large non-web source files (browser-ready .mp4 encodes ARE included)
+assets/videos/*.mov

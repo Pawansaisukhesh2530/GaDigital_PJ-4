@@ -16,3 +16,7 @@ config/smtp.php
 storage/logs/email.log
 storage/sessions/*
 uploads/resumes/*
+# Keep the web-access-blocking placeholders versioned so every clone
+# (and every Docker image built from a clone) protects the uploads dir.
+!uploads/resumes/.htaccess
+!uploads/resumes/index.html
