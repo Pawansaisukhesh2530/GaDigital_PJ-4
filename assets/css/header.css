@@ -1,0 +1,620 @@
+/* ================================================
+   HEADER CSS - Exact from post-39.css
+   Top bar: #D31F0D (red)
+   Nav shadow: 0 0 60px rgba(0,0,0,0.1)
+   Logo: 80px height desktop
+   Nav font: Montserrat 16px 600
+   Nav item padding: 25px top/bottom
+   Nav item gap: 35px
+   ================================================ */
+
+/* Top Bar - RED background */
+.top-bar {
+    background-color: #D31F0D;
+    padding: 0;
+}
+
+.top-bar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.top-bar-left {
+    display: flex;
+    align-items: center;
+}
+
+.top-bar-address {
+    color: #FFFFFF;
+    font-family: "Montserrat", Sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5em;
+    padding: 12px 0;
+}
+
+.top-bar-address i,
+.top-bar-address svg {
+    color: #FFFFFF;
+    fill: #FFFFFF;
+    margin-right: 6px;
+    font-size: 16px;
+    transition: color 0.3s, fill 0.3s;
+}
+
+.top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.top-bar-item {
+    color: #FFFFFF;
+    font-family: "Montserrat", Sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5em;
+    transition: color 0.3s;
+}
+
+.top-bar-item:hover {
+    color: #FFFFFF;
+    opacity: 0.8;
+}
+
+.top-bar-item i,
+.top-bar-item svg {
+    color: #FFFFFF;
+    fill: #FFFFFF;
+    margin-right: 6px;
+    font-size: 16px;
+    transition: fill 0.3s;
+}
+
+/* Main Header / Navigation Bar */
+.main-header {
+    background-color: #FFFFFF;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: var(--z-header);
+    box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Subtle lift once the page scrolls - keeps the sticky bar
+   readable over content without changing its resting look */
+.main-header.scrolled {
+    box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.14);
+}
+
+.main-header.scrolled .logo img {
+    height: 66px;
+}
+
+@media (max-width: 1024px) {
+    .main-header.scrolled .logo img {
+        height: 42px;
+    }
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+    /* Original nav region is ~100px tall (logo 80px + vertical breathing) */
+    min-height: 100px;
+}
+
+/* Logo - 80px height desktop, left-aligned like the original */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 20%;
+}
+
+.logo img {
+    width: auto;
+    max-width: 100%;
+    height: 80px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+/* Navigation - 80% width, centered */
+.main-nav {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px 0 0;
+}
+
+.main-nav .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.nav-item {
+    position: relative;
+}
+
+/* Row wrapper lets the label stay a link while the
+   chevron becomes its own toggle on touch devices */
+.nav-item-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0 calc(35px / 2);
+}
+
+/* Nav link: Montserrat 16px 600, padding 25px top/bottom, margin 17.5px sides */
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 25px 0;
+    margin: 0 calc(35px / 2);
+    color: #222334;
+    fill: #222334;
+    font-family: "Montserrat", Sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5em;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+/* Inside a row the margin belongs to the row */
+.nav-item-row .nav-link {
+    margin: 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #D31F0D;
+    fill: #D31F0D;
+}
+
+.submenu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    background: none;
+    border: 0;
+    color: #222334;
+    font-size: 12px;
+    line-height: 1;
+    transition: color 0.3s ease, transform 0.3s ease;
+    /* on desktop the chevron is decorative - hover drives the menu */
+    pointer-events: none;
+}
+
+.nav-item-row:hover .submenu-toggle,
+.has-dropdown:hover .submenu-toggle {
+    color: #D31F0D;
+}
+
+/* Dropdown Menu */
+.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.has-dropdown:hover .submenu-toggle i {
+    transform: rotate(180deg);
+}
+
+.submenu-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.1);
+    border-style: solid;
+    border-width: 0 0 5px 0;
+    border-color: #B51717;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5px);
+    transition: all 0.3s ease;
+    z-index: var(--z-dropdown);
+}
+
+.dropdown-menu li {
+    border-bottom: 1px solid #F5F4F5;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #222334;
+    fill: #222334;
+    font-family: "Montserrat", Sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.dropdown-menu li a:hover,
+.dropdown-menu li a:focus,
+.dropdown-menu li a.active {
+    background-color: #B51717;
+    color: #FFFFFF;
+}
+
+/* Mobile Toggle.
+   position:relative + z-index 3 keeps the close button above
+   the drawer (z-index 2) inside the header stacking context. */
+.mobile-toggle {
+    display: none;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+    z-index: 3;
+    cursor: pointer;
+    margin: 0 auto;
+    background-color: transparent;
+}
+
+.hamburger-line {
+    display: block;
+    width: 22px;
+    height: 3px;
+    background-color: #B51717;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.mobile-toggle.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.mobile-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-toggle.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* Mobile overlay.
+   Lives on <body>, so it sits in the ROOT stacking context.
+   .main-header is sticky + z-index:1000, which makes it a
+   stacking context - meaning the drawer inside it can never
+   outrank a root-level element with a higher z-index.
+   So the overlay must stay BELOW the header, otherwise it
+   paints over the drawer and eats every click. */
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: calc(var(--z-header) - 10);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Mega Dropdown (Products - two columns with group titles) */
+.has-mega .dropdown-mega {
+    min-width: 520px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.dropdown-group {
+    flex: 1 1 50%;
+    min-width: 0;
+    padding: 16px 0;
+    border-bottom: none;
+}
+
+.dropdown-group:first-child {
+    border-right: 1px solid #F5F4F5;
+}
+
+.dropdown-group-title {
+    display: block;
+    padding: 0 20px 10px;
+    font-family: "Montserrat", Sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #D31F0D;
+}
+
+.dropdown-sub {
+    list-style: none;
+}
+
+.dropdown-sub li {
+    border-bottom: none;
+}
+
+.dropdown-sub li a {
+    display: block;
+    padding: 7px 20px;
+    color: #222334;
+    font-family: "Montserrat", Sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.dropdown-sub li a:hover {
+    background-color: #F5F4F5;
+    color: #D31F0D;
+    padding-left: 24px;
+}
+
+/* Desktop hover */
+.has-mega:hover .dropdown-mega {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ------------------------------------------------
+   Tablet + mobile: mega dropdown stacks vertically
+   ------------------------------------------------ */
+@media (max-width: 1024px) {
+    /* Closed by default in the mobile drawer; the higher-specificity
+       base rule (.has-mega .dropdown-mega{display:flex}) is overridden
+       here so the Products mega menu only opens when its item is .open. */
+    .has-mega .dropdown-mega {
+        min-width: 100%;
+        flex-direction: column;
+        display: none;
+    }
+
+    .has-dropdown.open .dropdown-mega {
+        display: flex;
+    }
+
+    .dropdown-group {
+        flex: 1 1 100%;
+        padding: 12px 0;
+    }
+
+    .dropdown-group:first-child {
+        border-right: none;
+        border-bottom: 1px solid #F5F4F5;
+    }
+
+    .dropdown-group-title {
+        padding: 0 28px 8px;
+        font-size: 12px;
+    }
+
+    .dropdown-sub li a {
+        padding: 9px 28px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* ------------------------------------------------
+   Tablet + mobile: slide-in drawer navigation
+   Breakpoint 1024px matches Elementor's tablet value
+   ------------------------------------------------ */
+@media (max-width: 1024px) {
+    .header-content {
+        align-items: center;
+        padding: 8px 0;
+        min-height: 0;
+    }
+
+    .logo {
+        width: auto;
+        justify-content: flex-start;
+        flex: 0 0 auto;
+    }
+
+    .logo img {
+        width: auto;
+        height: 46px;
+    }
+
+    .mobile-toggle {
+        display: flex;
+        margin: 0;
+        /* comfortable 44px touch target */
+        width: 44px;
+        height: 44px;
+    }
+
+    /* Drawer.
+       z-index here is scoped to the header's own stacking
+       context (.main-header is sticky + z-indexed), so a
+       small local value is all that's needed. The overlay
+       is kept below the header - see .nav-overlay. */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(320px, 86vw);
+        height: 100%;
+        max-height: 100%;
+        background: #FFFFFF;
+        box-shadow: -6px 0 28px rgba(0, 0, 0, 0.18);
+        padding: 84px 0 32px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        z-index: 2;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        transform: translateX(100%);
+        transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
+    }
+
+    .main-nav.active {
+        transform: translateX(0);
+    }
+
+    .main-nav .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+    }
+
+    .nav-item {
+        width: 100%;
+        border-bottom: 1px solid #F5F4F5;
+    }
+
+    .nav-item-row {
+        display: flex;
+        align-items: stretch;
+        margin: 0;
+        width: 100%;
+    }
+
+    .nav-link {
+        margin: 0;
+        padding: 14px 20px;
+        width: 100%;
+        min-height: 48px;
+        align-items: center;
+    }
+
+    .nav-item-row .nav-link {
+        flex: 1 1 auto;
+    }
+
+    /* Chevron becomes a real 48px tap target */
+    .submenu-toggle {
+        pointer-events: auto;
+        flex: 0 0 52px;
+        width: 52px;
+        min-height: 48px;
+        font-size: 15px;
+        border-left: 1px solid #F0F0F1;
+        cursor: pointer;
+    }
+
+    /* Accordion submenu.
+       Plain show/hide - a grid-template-rows animation only
+       collapses the first row when the list has multiple
+       <li> children, which silently hid item 1 of each menu. */
+    .dropdown-menu {
+        position: static;
+        min-width: 100%;
+        background: #F8F8F9;
+        border: 0;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+    }
+
+    .has-dropdown.open .dropdown-menu {
+        display: block;
+        animation: submenu-in 0.25s ease both;
+    }
+
+    @keyframes submenu-in {
+        from { opacity: 0; transform: translateY(-6px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .has-dropdown.open .submenu-toggle i {
+        transform: rotate(180deg);
+    }
+
+    /* Hover must not open the drawer submenu on touch */
+    .has-dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    .has-dropdown:hover .submenu-toggle i {
+        transform: none;
+    }
+
+    .dropdown-menu li a {
+        padding: 12px 28px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        font-size: 15px;
+    }
+}
+
+/* Mobile: top bar hidden below 767px (matches original) */
+@media (max-width: 767px) {
+    .top-bar {
+        display: none;
+    }
+
+    .logo img {
+        height: 44px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 40px;
+    }
+
+    .main-nav {
+        width: min(300px, 88vw);
+    }
+}
+
+@media (max-width: 360px) {
+    .logo img {
+        height: 36px;
+    }
+}
+
+/* Tablet portrait/landscape: keep top bar but tighten it */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .top-bar-content {
+        justify-content: space-between;
+    }
+
+    .top-bar-right {
+        gap: 12px;
+    }
+}
+
+/* Short landscape: drawer must still scroll */
+@media (max-height: 480px) and (max-width: 1024px) {
+    .main-nav {
+        padding-top: 68px;
+    }
+}

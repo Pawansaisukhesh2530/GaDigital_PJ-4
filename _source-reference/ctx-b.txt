@@ -1,0 +1,18 @@
+﻿############ 17052e2 ############
+--- [DESKTOP]
+    --display:flex;--flex-direction:row;--container-widget-width:calc( ( 1 - var( --container-widget-flex-grow ) ) * 100% );--container-widget-height:100%;--container-widget-flex-grow:1;--container-widget-align-self:stretch;--flex-wrap-mobile:wrap;--justify-content:center;--align-items:center;
+
+############ 4cb5e45 ############
+--- [DESKTOP]
+    background-image:url("https://nanitransformers.com/wp-content/uploads/2025/10/bg_img.png");background-position:center center;background-repeat:no-repeat;background-size:contain;
+--- [DESKTOP]
+    -webkit-mask-image:url( https://nanitransformers.com/wp-content/uploads/2025/10/image.png );-webkit-mask-size:cover;-webkit-mask-position:center center;
+
+############ 81fe187 ############
+--- [DESKTOP]
+    background-color:#D31F0D;
+--- [DESKTOP]
+    background-color:#FCD900;color:#000000;
+--- [DESKTOP]
+    fill:#000000;
+

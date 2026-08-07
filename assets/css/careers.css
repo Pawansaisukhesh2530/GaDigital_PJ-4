@@ -1,0 +1,236 @@
+/* ================================================
+   CAREERS PAGE
+   Current openings accordion + application form/image
+   ================================================ */
+
+.careers-section {
+    padding: 5em 0 3em;
+}
+
+.careers-title {
+    font-family: var(--font-primary);
+    font-size: var(--h2-size);
+    font-weight: var(--h2-weight);
+    line-height: var(--h2-line-height);
+    letter-spacing: var(--h2-letter-spacing);
+    color: var(--color-dark-heading);
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+/* ------------------------------------------------
+   Openings accordion
+   ------------------------------------------------ */
+.job-accordion {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.job-item {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border);
+    border-bottom: 4px solid var(--color-border);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-item[open],
+.job-item:hover {
+    border-bottom-color: #D31F0D;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+}
+
+.job-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-primary);
+    font-size: var(--h5-size);
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    color: var(--color-dark-heading);
+    transition: color 0.3s ease;
+}
+
+/* Hide the native disclosure triangle */
+.job-summary::-webkit-details-marker { display: none; }
+.job-summary::marker { content: ''; }
+
+.job-item[open] .job-summary,
+.job-summary:hover {
+    color: #D31F0D;
+}
+
+.job-summary-icon {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #D31F0D;
+    color: #FFFFFF;
+    font-size: 13px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.job-item[open] .job-summary-icon {
+    transform: rotate(180deg);
+}
+
+.job-body {
+    padding: 0 24px 24px;
+    border-top: 1px solid var(--color-border);
+}
+
+.job-meta {
+    padding-top: 16px;
+}
+
+.job-meta p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6em;
+    color: var(--color-body);
+    margin-bottom: 4px;
+}
+
+.job-meta strong {
+    color: var(--color-dark-heading);
+}
+
+.job-note {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5em;
+    color: var(--color-dark-heading);
+    margin: 12px 0 18px;
+}
+
+.job-apply {
+    text-transform: none;
+}
+
+/* ------------------------------------------------
+   Application form + image
+   ------------------------------------------------ */
+.careers-apply {
+    padding: 2em 0 5em;
+    scroll-margin-top: 120px;
+}
+
+.careers-apply-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 40px;
+    align-items: stretch;
+}
+
+.careers-apply-form {
+    background: var(--color-bg-light);
+    padding: 40px;
+}
+
+/* Inputs need a white fill + visible border so they don't disappear
+   against the light-grey form panel. */
+.careers-apply-form .form-control,
+.careers-apply-form .file-upload-label {
+    background-color: #FFFFFF;
+    border: 1px solid #DCDCDE;
+}
+
+.careers-apply-form .form-control:focus {
+    border-color: #760000;
+}
+
+.careers-apply-form .file-upload-label:hover {
+    border-color: #760000;
+}
+
+.careers-apply-form h2 {
+    font-family: var(--font-primary);
+    font-size: var(--h3-size);
+    font-weight: 700;
+    line-height: 1.3em;
+    letter-spacing: -0.5px;
+    color: var(--color-dark-heading);
+    margin-bottom: 24px;
+}
+
+.careers-apply-image {
+    overflow: hidden;
+}
+
+.careers-apply-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Status alerts */
+.form-alert {
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    border-left: 4px solid;
+}
+
+.form-alert--success {
+    background: #eaf7ed;
+    border-left-color: #2e7d32;
+    color: #1e5e22;
+}
+
+.form-alert--error {
+    background: #fdecea;
+    border-left-color: #D31F0D;
+    color: #8a1a0d;
+}
+
+/* ------------------------------------------------
+   Responsive
+   ------------------------------------------------ */
+@media (max-width: 1024px) {
+    .careers-apply-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    /* Cap the tall portrait image so it doesn't dominate on tablet */
+    .careers-apply-image {
+        max-height: 520px;
+    }
+}
+
+@media (max-width: 767px) {
+    .careers-section {
+        padding: 3em 0 2em;
+    }
+
+    .job-summary {
+        padding: 16px 18px;
+        font-size: 16px;
+    }
+
+    .job-body {
+        padding: 0 18px 20px;
+    }
+
+    .careers-apply-form {
+        padding: 24px;
+    }
+
+    .careers-apply-image {
+        max-height: 380px;
+    }
+}

@@ -1,0 +1,221 @@
+﻿##### converter-duty-transformers-oil-filled
+  count: 5
+  Q: Where are converter duty transformers used?
+  A: In rectifiers, drives, and industrial converters.
+  Q: Can they handle voltage surges?
+  A: Yes, equipped with surge protection and insulation.
+  Q: What type of cooling is used?
+  A: Oil natural or oil forced cooling as per capacity.
+  Q: Do they reduce harmonics?
+  A: Yes, through optimized core and winding design.
+  Q: What is their efficiency range?
+  A: Typically between 98â€“99% depending on load conditions.
+
+##### distribution-transformers-oil-filled
+  count: 5
+  Q: What is the primary function of a distribution transformer?
+  A: It steps down high voltage from the power grid to levels suitable for residential and commercial use.
+  Q: Are these transformers suitable for outdoor use?
+  A: Yes, they are built with weather-resistant tanks and insulation.
+  Q: How efficient are these transformers?
+  A: They achieve high efficiency levels as per BIS and IEC standards.
+  Q: Can they handle fluctuating load conditions?
+  A: Yes, the design supports stable performance even under variable load.
+  Q: What is the typical lifespan?
+  A: With proper maintenance, over 25 years of dependable service.
+
+##### furnace-duty-transformers-oil-filled
+  count: 5
+  Q: Where are furnace duty transformers used?
+  A: In steel, alloy, and foundry industries operating electric or induction furnaces.
+  Q: Can they handle load fluctuations?
+  A: Yes, theyâ€™re designed for extreme cyclic load variations.
+  Q: Are they air-cooled or oil-cooled?
+  A: Typically oil-cooled for efficient thermal management.
+  Q: How are they protected against overheating?
+  A: Equipped with temperature sensors and oil circulation systems.
+  Q: Do they meet industry standards?
+  A: Yes, conform to IS, IEC, and ANSI standards.
+
+##### generator-transformers-oil-filled
+  count: 5
+  Q: What is the purpose of a generator transformer?
+  A: To step up generator output voltage for grid transmission.
+  Q: Can it operate continuously at full load?
+  A: Yes, designed for continuous full-load operation.
+  Q: How is it cooled?
+  A: Using oil natural or forced oil-air cooling systems.
+  Q: Is it suitable for renewable energy generators?
+  A: Yes, applicable for hydro, thermal, and solar power plants.
+  Q: How long does it last?
+  A: Typically 25â€“30 years with proper maintenance.
+
+##### inverter-duty-transformers-oil-filled
+  count: 5
+  Q: What makes inverter duty transformers unique?
+  A: Theyâ€™re designed to manage harmonic currents from inverters efficiently.
+  Q: Are they suitable for renewable energy plants?
+  A: Yes, ideal for solar, wind, and hybrid installations.
+  Q: How do they manage heat generation?
+  A: Through optimized oil circulation and heat dissipation design.
+  Q: Can they operate continuously?
+  A: Yes, built for continuous duty under inverter operation.
+  Q: Do they reduce system harmonics?
+  A: Yes, through harmonic-optimized winding configuration.
+
+##### isolation-transformers-oil-filled
+  count: 5
+  Q: Why use an isolation transformer?
+  A: To isolate sensitive equipment from power disturbances.
+  Q: Does it improve power quality?
+  A: Yes, by reducing electrical noise and transients.
+  Q: Is it suitable for hospitals and data centers?
+  A: Yes, ideal for critical and sensitive operations.
+  Q: Can it handle continuous loads?
+  A: Yes, designed for 24x7 operation.
+  Q: Does it need regular maintenance?
+  A: Minimal maintenance apart from oil quality checks.
+
+##### lightning-transformers-oil-filled
+  count: 5
+  Q: What is the main function of a lightning transformer?
+  A: To safeguard electrical systems from lightning and surge voltages.
+  Q: Are they the same as surge arresters?
+  A: No, they complement surge arresters by providing isolation and damping.
+  Q: Can they be installed outdoors?
+  A: Yes, built for outdoor conditions with weatherproof enclosures.
+  Q: Do they require regular monitoring?
+  A: Periodic inspection ensures continued protection performance.
+  Q: How long do they last?
+  A: Typically over 20 years with proper maintenance.
+
+##### power-transformers-oil-filled
+  count: 5
+  Q: What differentiates power transformers from distribution transformers?
+  A: Power transformers are used for high-voltage transmission, while distribution transformers deliver low-voltage power to end users.
+  Q: Are these suitable for 24x7 operation?
+  A: Yes, they are built for continuous load and thermal stability.
+  Q: Can they be customized?
+  A: Yes, voltage ratings and capacities can be tailored to specific applications.
+  Q: What type of cooling system is used?
+  A: Primarily oil natural air natural (ONAN) or oil forced air forced (OFAF).
+  Q: Do they require regular maintenance?
+  A: Periodic oil testing and inspection ensure long life and safe operation.
+
+##### rectifier-transformers-oil-filled
+  count: 5
+  Q: What are the typical applications?
+  A: Electroplating, traction, electrolysis, and DC supply systems.
+  Q: Can they handle continuous DC loads?
+  A: Yes, theyâ€™re designed for uninterrupted duty.
+  Q: Are harmonic effects minimized?
+  A: Yes, through optimized winding design and vector grouping.
+  Q: Do they support multiple pulse operations?
+  A: Yes, 6-pulse, 12-pulse, or customized configurations.
+  Q: What cooling methods are available?
+  A: Oil natural (ONAN) or oil forced (OFAF) systems.
+
+##### converter-duty-transformer-dry-type
+  count: 5
+  Q: Where are converter duty transformers used?
+  A: In rectifier and industrial converter systems.
+  Q: How are they cooled?
+  A: Through natural or forced air circulation.
+  Q: Do they support continuous duty?
+  A: Yes, designed for round-the-clock operation.
+  Q: Are they safe for indoor installations?
+  A: Absolutely â€” no oil means no fire hazard.
+  Q: What is the expected efficiency?
+  A: Approximately 98â€“99% depending on the load.
+
+##### distribution-transformers-dry-type
+  count: 5
+  Q: Where are VPI Distribution Transformers commonly used?
+  A: In offices, malls, hospitals, and industrial facilities requiring safe, indoor power solutions.
+  Q: What is the main advantage over oil-filled transformers?
+  A: No oil means zero fire risk, lower maintenance, and eco-friendly operation.
+  Q: Can they be installed outdoors?
+  A: Yes, with appropriate enclosures and weatherproofing.
+  Q: What cooling system is used?
+  A: Air Natural (AN) or Air Forced (AF) systems.
+  Q: How long do they last?
+  A: Typically over 25 years with minimal maintenance.
+
+##### furnace-duty-transformer-dry-type
+  count: 5
+  Q: What industries use Furnace Duty Transformers?
+  A: Steel plants, foundries, and other metal-processing facilities.
+  Q: Are they suitable for 24-hour operation?
+  A: Yes, designed for continuous and cyclic loads.
+  Q: What cooling method is used?
+  A: Air Natural (AN) or Air Forced (AF).
+  Q: Do they require special safety systems?
+  A: No, their dry construction makes them inherently fire-safe.
+  Q: Can they replace oil-filled furnace transformers?
+  A: Yes, especially in fire-sensitive or indoor industrial setups.
+
+##### generator-transformer-dry-type
+  count: 5
+  Q: What is the role of a generator transformer?
+  A: To adjust generator output voltage to grid or system levels.
+  Q: Is it suitable for continuous operation?
+  A: Yes, designed for long-duration generator duty.
+  Q: Can it handle voltage fluctuations?
+  A: Yes, with excellent dynamic voltage regulation.
+  Q: Does it require cooling oil?
+  A: No, it operates with air cooling only.
+  Q: Can it be used in renewable power plants?
+  A: Yes, widely used in solar and hydro generator systems.
+
+##### inverter-duty-transformer-dry-type
+  count: 5
+  Q: Are these transformers suitable for solar inverters?
+  A: Yes, specifically designed for renewable energy systems.
+  Q: How do they manage harmonics?
+  A: Through harmonic-optimized winding and core design.
+  Q: Do they require oil for cooling?
+  A: No, they are air-cooled and completely oil-free.
+  Q: Can they operate continuously?
+  A: Yes, theyâ€™re built for continuous inverter operation.
+  Q: What voltage ratings are available?
+  A: Customizable based on inverter and load requirements.
+
+##### isolation-transformer-dry-type
+  count: 5
+  Q: Why use a VPI Isolation Transformer?
+  A: To protect sensitive equipment from power disturbances and surges.
+  Q: Can it be used in hospitals?
+  A: Yes, itâ€™s ideal for medical and laboratory environments.
+  Q: Does it improve power quality?
+  A: Yes, by eliminating electrical noise and transients.
+  Q: Is it suitable for industrial automation systems?
+  A: Absolutely â€” ensures stable operation for control systems.
+  Q: Is periodic maintenance required?
+  A: Only basic cleaning; no oil or fluid servicing is needed.
+
+##### lightning-transformer-dry-type
+  count: 5
+  Q: What is the main purpose of a lightning transformer?
+  A: To protect connected electrical systems from high-voltage surges.
+  Q: Can it be used in substations?
+  A: Yes, ideal for substations and industrial installations.
+  Q: Does it require oil maintenance?
+  A: No, itâ€™s completely dry and maintenance-free.
+  Q: Can it operate in outdoor conditions?
+  A: Yes, with appropriate weatherproofing.
+  Q: How fast does it respond to a surge?
+  A: Almost instantaneously â€” within microseconds.
+
+##### power-transformer-dry-type
+  count: 5
+  Q: Can these transformers handle continuous loads?
+  A: Yes, built for 24/7 operation under rated conditions.
+  Q: Are they suitable for high-rise buildings or substations?
+  A: Yes, their compact, oil-free design makes them ideal for such applications.
+  Q: What is the efficiency range?
+  A: Typically between 98â€“99% depending on capacity.
+  Q: Is maintenance required?
+  A: Only periodic inspection and cleaning â€” no oil testing needed.
+  Q: Can they be customized?
+  A: Yes, according to project-specific voltage and load requirements.
+

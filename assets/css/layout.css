@@ -1,0 +1,137 @@
+/* ================================================
+   LAYOUT CSS - Container max-width: 1280px (exact)
+   Widget spacing: 20px (exact)
+   ================================================ */
+
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.container-fluid {
+    width: 100%;
+    padding: 0 15px;
+}
+
+/* Section Styles */
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-family: var(--font-primary);
+    font-size: var(--h2-size);
+    font-weight: var(--h2-weight);
+    line-height: var(--h2-line-height);
+    letter-spacing: var(--h2-letter-spacing);
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--color-dark-heading);
+}
+
+.section-subtitle {
+    font-family: var(--font-primary);
+    font-size: var(--h6-size);
+    font-weight: var(--h6-weight);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-red-dark);
+    margin-bottom: 8px;
+}
+
+/* Page Banner - shared across ALL inner pages.
+   Matches the original: industrial photo background, dark overlay,
+   min-height 320px, white 42px centered title (letter-spacing -1px). */
+.page-banner {
+    position: relative;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+    /* Default banner (overridden per page by the modifiers below) */
+    background-image: url('../images/banners/projects.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Per-page banner images (matches the original site's distinct banners) */
+.page-banner--about    { background-image: url('../images/banners/about.jpg'); }
+.page-banner--products { background-image: url('../images/banners/products.jpg'); }
+.page-banner--services { background-image: url('../images/banners/services.jpg'); }
+.page-banner--contact  { background-image: url('../images/banners/contact.jpg'); }
+.page-banner--gallery  { background-image: url('../images/banners/gallery.jpg'); }
+.page-banner--careers  { background-image: url('../images/banners/careers.jpg'); }
+.page-banner--projects { background-image: url('../images/banners/projects.jpg'); }
+
+.page-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 11, 20, 0.58) 0%, rgba(10, 11, 20, 0.42) 100%);
+    pointer-events: none;
+}
+
+.page-banner .container {
+    position: relative;
+    z-index: 1;
+}
+
+.page-banner h1 {
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2em;
+    letter-spacing: -1px;
+    text-align: center;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 767px) {
+    .page-banner {
+        min-height: 160px;
+    }
+
+    .page-banner h1 {
+        font-size: 28px;
+    }
+}
+
+/* Background Variations */
+.bg-light {
+    background-color: var(--color-bg-light);
+}
+
+.bg-dark {
+    background-color: var(--color-dark);
+}
+
+/* Text Alignment */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* Flex Utilities */
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

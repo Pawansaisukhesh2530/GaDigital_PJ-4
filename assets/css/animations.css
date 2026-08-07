@@ -1,0 +1,64 @@
+/* ================================================
+   ANIMATIONS CSS
+   Mirrors the Elementor entrance animations
+   (fadeInUp / fadeInLeft / fadeInRight / fadeIn / bounceIn)
+   ================================================ */
+
+/*
+ * Elements are only hidden when JS is available, so a
+ * script failure or a no-JS client still sees content.
+ * The .js class is set by an inline snippet in head.php.
+ */
+.js [data-animation] {
+    opacity: 0;
+    transition:
+        opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.js [data-animation="fadeInUp"]    { transform: translate3d(0, 34px, 0); }
+.js [data-animation="fadeInLeft"]  { transform: translate3d(-34px, 0, 0); }
+.js [data-animation="fadeInRight"] { transform: translate3d(34px, 0, 0); }
+.js [data-animation="fadeIn"]      { transform: none; }
+.js [data-animation="bounceIn"]    { transform: scale(0.86); }
+
+/* Bounce gets a springier curve to match Elementor */
+.js [data-animation="bounceIn"] {
+    transition:
+        opacity 0.5s ease,
+        transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Revealed state */
+.js [data-animation].animated {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+}
+
+/* ------------------------------------------------
+   Stagger - the original delays the product and
+   service cards so they cascade rather than pop in
+   together (600ms / 700ms in the source).
+   ------------------------------------------------ */
+.js .products-cards > [data-animation]:nth-child(1) { transition-delay: 0.1s; }
+.js .products-cards > [data-animation]:nth-child(2) { transition-delay: 0.2s; }
+
+.js .services-grid.animated > * { transition-delay: 0s; }
+
+.js .features-grid > .feature-card {
+    transition: transform 0.3s ease;
+}
+
+/* ------------------------------------------------
+   Reduced motion - show everything immediately
+   ------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+    .js [data-animation],
+    .js [data-animation].animated {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
