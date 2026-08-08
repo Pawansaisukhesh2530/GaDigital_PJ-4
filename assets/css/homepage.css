@@ -141,7 +141,7 @@
     font-weight: 700;
     line-height: 1.3em;
     letter-spacing: -1.2px;
-    color: var(--color-dark-heading);
+    color: white;
     margin-bottom: 8px;
 }
 
@@ -149,7 +149,7 @@
     font-family: var(--font-body);
     font-size: 14px;
     line-height: 1.5em;
-    color: var(--color-body);
+    color: white;
     margin-bottom: 0;
 }
 
@@ -208,7 +208,7 @@
 
 .about-text-content strong {
     font-weight: 700;
-    color: var(--color-dark-heading);
+    color: #616379;
 }
 
 .about-main-img {
@@ -220,7 +220,7 @@
 /* Experience badge - 175px circle */
 .experience-badge {
     position: absolute;
-    top: 0;
+    top: -25px;
     right: 0;
     width: 175px;
     height: 175px;
