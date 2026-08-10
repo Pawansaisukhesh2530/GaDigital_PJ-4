@@ -33,13 +33,16 @@
     background: #FFFFFF;
     border: 1px solid var(--color-border);
     border-bottom: 4px solid var(--color-border);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s ease;
 }
 
 .job-item[open],
 .job-item:hover {
     border-bottom-color: #D31F0D;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
 }
 
 .job-summary {
@@ -55,7 +58,8 @@
     font-weight: 700;
     letter-spacing: -0.3px;
     color: var(--color-dark-heading);
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    background-color: transparent;
 }
 
 /* Hide the native disclosure triangle */
@@ -65,6 +69,7 @@
 .job-item[open] .job-summary,
 .job-summary:hover {
     color: #D31F0D;
+    background-color: rgba(211,31,13,0.03);
 }
 
 .job-summary-icon {
@@ -145,14 +150,20 @@
 .careers-apply-form .file-upload-label {
     background-color: #FFFFFF;
     border: 1px solid #DCDCDE;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.careers-apply-form .form-control:focus {
-    border-color: #760000;
-}
-
+.careers-apply-form .form-control:hover,
 .careers-apply-form .file-upload-label:hover {
+    border-color: #b51717;
+    box-shadow: 0 0 0 2px rgba(211,31,13,0.1);
+}
+
+.careers-apply-form .form-control:focus,
+.careers-apply-form .file-upload-label:focus {
     border-color: #760000;
+    box-shadow: 0 0 0 2px rgba(118,0,0,0.2);
+    outline: none;
 }
 
 .careers-apply-form h2 {
@@ -174,6 +185,11 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.5s ease;
+}
+
+.careers-apply-image:hover img {
+    transform: scale(1.03);
 }
 
 /* Status alerts */

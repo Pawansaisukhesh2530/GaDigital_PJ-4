@@ -14,7 +14,7 @@ $openings = [
         'qualification' => 'Bachelor of Engineering',
         'experience' => '0',
         'location' => 'Hyderabad',
-        'note' => 'Excellent opportunity for freshers to kick start their career in Transformers industry',
+        'note' => '"Excellent opportunity for freshers to kick start their career in Transformers industry"',
     ],
     [
         'title' => 'General Manager (Service Marketing) south India',
@@ -22,7 +22,7 @@ $openings = [
         'qualification' => 'Bachelor of Engineering',
         'experience' => '0',
         'location' => 'Hyderabad',
-        'note' => 'Excellent opportunity for freshers to kick start their career in Transformers industry',
+        'note' => '"Excellent opportunity for freshers to kick start their career in Transformers industry"',
     ],
 ];
 
@@ -43,7 +43,7 @@ $status = $_GET['status'] ?? '';
 
         <div class="job-accordion" data-animation="fadeInUp">
             <?php foreach ($openings as $index => $job): ?>
-            <details class="job-item"<?php echo $index === 0 ? ' open' : ''; ?>>
+            <details class="job-item" data-animation="fadeInUp"<?php echo $index === 0 ? ' open' : ''; ?>>
                 <summary class="job-summary">
                     <span class="job-summary-title"><?php echo $job['title']; ?></span>
                     <span class="job-summary-icon" aria-hidden="true">
@@ -74,9 +74,9 @@ $status = $_GET['status'] ?? '';
                 <h2>Haven&rsquo;t found what you&rsquo;re looking for?</h2>
 
                 <?php if ($status === 'success'): ?>
-                    <div class="form-alert form-alert--success">Thank you! Your application has been received. We'll be in touch soon.</div>
+                    <div class="form-alert form-alert--success" data-animation="fadeIn">Thank you! Your application has been received. We'll be in touch soon.</div>
                 <?php elseif ($status === 'error'): ?>
-                    <div class="form-alert form-alert--error">Sorry, something went wrong. Please check your details and try again.</div>
+                    <div class="form-alert form-alert--error" data-animation="fadeIn">Sorry, something went wrong. Please check your details and try again.</div>
                 <?php endif; ?>
 
                 <form action="handlers/career-form.php" method="POST" enctype="multipart/form-data" data-validate>

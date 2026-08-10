@@ -44,11 +44,6 @@ require_once __DIR__ . '/header.php';
                     <li><span>Voltage</span><strong><?php echo $p['volt']; ?></strong></li>
                 </ul>
 
-                <figure class="product-detail-figure">
-                    <img src="<?php echo ASSETS_PATH; ?>/images/products/<?php echo $p['image']; ?>"
-                         alt="<?php echo $p['name']; ?>" loading="lazy" decoding="async">
-                </figure>
-
                 <p><?php echo $p['p1']; ?></p>
                 <p><?php echo $p['p2']; ?></p>
 

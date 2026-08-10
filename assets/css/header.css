@@ -166,7 +166,7 @@
     font-size: 16px;
     font-weight: 600;
     line-height: 1.5em;
-    transition: color 0.3s;
+    transition: color 0.3s ease, transform 0.3s ease;
     white-space: nowrap;
 }
 
@@ -179,6 +179,13 @@
 .nav-link.active {
     color: #D31F0D;
     fill: #D31F0D;
+    transform: scale(1.05);
+}
+
+.nav-link:focus-visible {
+    outline: 2px solid #D31F0D;
+    outline-offset: 2px;
+    border-radius: 4px;
 }
 
 .submenu-toggle {
@@ -250,7 +257,7 @@
     font-family: "Montserrat", Sans-serif;
     font-size: 16px;
     font-weight: 600;
-    transition: all 0.3s;
+    transition: all 0.3s ease, transform 0.3s ease;
 }
 
 .dropdown-menu li a:hover,
@@ -258,6 +265,7 @@
 .dropdown-menu li a.active {
     background-color: #B51717;
     color: #FFFFFF;
+    transform: translateX(5px);
 }
 
 /* Mobile Toggle.

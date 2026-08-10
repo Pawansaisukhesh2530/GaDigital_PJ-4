@@ -16,6 +16,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
+    overflow: hidden;
 }
 
 .masked-image img {
@@ -47,6 +48,7 @@
     height: auto;
     position: relative;
     display: block;
+    overflow: hidden;
 }
 
 .hero-slider picture {
@@ -60,6 +62,7 @@
     /* attrs give the ratio; this guards against a stray
        global height rule reintroducing a crop */
     object-fit: contain;
+    transition: transform 0.5s ease;
 }
 
 .swiper-slide-inner {
@@ -75,18 +78,23 @@
     color: #FFFFFF;
     background-color: rgba(0, 0, 0, 0.25);
     border-radius: 50%;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .hero-slider .swiper-button-prev:hover,
 .hero-slider .swiper-button-next:hover {
     background-color: #D31F0D;
+    transform: scale(1.1);
 }
 
 .hero-slider .swiper-button-prev::after,
 .hero-slider .swiper-button-next::after {
     font-size: 18px;
     font-weight: 700;
+}
+
+.hero-slider .swiper-slide:hover .hero-img {
+    transform: scale(1.02);
 }
 
 /* ------------------------------------------------
@@ -113,12 +121,13 @@
     gap: 15px;
     padding: 2em;
     background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease, border-color 0.3s ease;
 }
 
 .feature-card--red { background-color: #D31F0D; }
-
-.feature-card--red h3,
-.feature-card--red p { color: #FFFFFF; }
 
 .feature-img {
     width: 30%;
@@ -133,7 +142,24 @@
     transition: transform 0.3s ease;
 }
 
-.feature-card:hover .feature-img img { transform: scale(1.06); }
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.feature-card:hover .feature-img img {
+    transform: scale(1.06);
+}
+
+.feature-card:hover .feature-content h3,
+.feature-card:hover .feature-content p {
+    color: var(--color-red);
+}
+
+.feature-card--red:hover .feature-content h3,
+.feature-card--red:hover .feature-content p {
+    color: var(--color-white);
+}
 
 .feature-content h3 {
     font-family: var(--font-primary);
@@ -141,38 +167,47 @@
     font-weight: 700;
     line-height: 1.3em;
     letter-spacing: -1.2px;
-    color: white;
+    color: var(--color-dark-heading);
     margin-bottom: 8px;
+    transition: color 0.3s ease;
 }
 
 .feature-content p {
     font-family: var(--font-body);
     font-size: 14px;
     line-height: 1.5em;
-    color: white;
+    color: var(--color-body);
     margin-bottom: 0;
+    transition: color 0.3s ease;
 }
+
+/* Red card overrides text to white */
+.feature-card--red .feature-content h3,
+.feature-card--red .feature-content p { color: #FFFFFF; }
 
 /* ------------------------------------------------
    ABOUT / WHO WE ARE
    ------------------------------------------------ */
-.section-about { padding: 5em 0 0; }
+.section-about { padding: 6em 0 4em; }
 
 .about-row {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .about-col-text {
-    flex: 1 1 50%;
+    flex: 0 1 45%;
     min-width: 0;
-    padding: 3em 5em 3em 1em;
+    padding: 3em 4em 3em 2em;
 }
 
 .about-col-image {
-    flex: 1 1 50%;
+    flex: 0 1 55%;
     min-width: 0;
     display: flex;
     justify-content: center;
@@ -215,12 +250,18 @@
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.5s ease;
 }
 
-/* Experience badge - 175px circle */
+.about-col-image:hover .about-main-img {
+    transform: scale(1.03);
+}
+
+/* Experience badge - 175px circle, positioned level with the "WHO WE ARE"
+   heading and right-aligned in the image column (above the image). */
 .experience-badge {
     position: absolute;
-    top: -25px;
+    top: -125px;
     right: 0;
     width: 175px;
     height: 175px;
@@ -233,6 +274,13 @@
     justify-content: center;
     text-align: center;
     padding: 14px;
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-col-image:hover .experience-badge {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 80px 0px rgba(0, 0, 0, 0.15);
 }
 
 .badge-number {
@@ -262,7 +310,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
-    padding: 7em 0;
+    padding: 5em 0;
     position: relative;
 }
 
@@ -293,7 +341,7 @@
     letter-spacing: -1.5px;
     color: var(--color-dark-heading);
     margin: 0 auto 12px;
-    max-width: 22ch;
+    max-width: 28ch;
 }
 
 .stats-subtext {
@@ -310,7 +358,18 @@
     text-align: center;
 }
 
-.counter-item { padding: 20px; }
+.counter-item {
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.counter-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
 
 .counter-title {
     font-family: var(--font-primary);
@@ -338,7 +397,7 @@
 .section-products {
     background-color: #000000;
     position: relative;
-    padding: 112px 24px;
+    padding: 7em 1.5em;
     overflow: hidden;
 }
 
@@ -348,7 +407,8 @@
     inset: 0;
     background-image: url('../images/grid-overlay.png');
     background-position: center center;
-    opacity: 0.3;
+    background-size: 75%;
+    opacity: 0.18;
     pointer-events: none;
 }
 
@@ -373,6 +433,12 @@
     letter-spacing: -1px;
     color: #FCD900;
     margin-bottom: 0;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.products-header:hover h2 {
+    transform: scale(1.03);
+    text-shadow: 0 0 10px rgba(252,217,0,0.5);
 }
 
 .products-cards {
@@ -390,6 +456,21 @@
     background-position: 90% 90%;
     display: flex;
     align-items: flex-start;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-showcase-card:hover {
+    transform: translateY(-8px);
+    background-color: rgba(0,0,0,0.8);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.product-showcase-card:hover h3,
+.product-showcase-card:hover p {
+    color: #FFFFFF;
 }
 
 .product-showcase-inner {
@@ -406,6 +487,7 @@
     line-height: 1.2em;
     color: #FCD900;
     margin-bottom: 8px;
+    white-space: nowrap;
 }
 
 .product-showcase-card p {
@@ -415,6 +497,7 @@
     line-height: 1.5em;
     color: #FCD900;
     margin-bottom: 0;
+    white-space: nowrap;
 }
 
 .product-showcase-card .btn { margin-top: 16px; }
@@ -426,7 +509,7 @@
    card: 5px bottom border -> #D31F0D on hover, 1s
    ------------------------------------------------ */
 .section-services {
-    padding: 0 0 7em;
+    padding: 5em 0 7em;
     position: relative;
     background-image: url('../images/services-bg.jpg');
     background-position: center center;
@@ -469,6 +552,12 @@
     letter-spacing: -1px;
     color: var(--color-dark-heading);
     margin-bottom: 0;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.services-header:hover h2 {
+    transform: scale(1.03);
+    color: var(--color-red);
 }
 
 .services-grid {
@@ -484,11 +573,23 @@
     padding: 0;
     border-bottom: 5px solid #DCDCDE;
     box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.1);
-    transition: border-color 1s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 1s ease, transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
 }
 
 .service-home-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     border-bottom-color: #D31F0D;
+}
+
+.service-home-card:hover .service-title {
+    color: var(--color-red);
+}
+
+.service-home-card:hover .service-home-icon {
+    transform: scale(1.1);
 }
 
 .service-home-icon {
@@ -518,11 +619,12 @@
 }
 
 /* Direct child only - the photo, not the icon.
-   height:auto so the whole photo shows (never cropped). */
+   Fixed height so all service cards have equal image bands. */
 .service-home-card > img {
     width: 100%;
-    height: auto;
+    height: 220px;
     display: block;
+    object-fit: cover !important;
 }
 
 .service-home-card ul {
@@ -552,7 +654,7 @@
    45%+55%+10px would exceed the line otherwise.
    ------------------------------------------------ */
 .section-projects {
-    padding: 7em 0;
+    padding: 5em 0;
     background-color: #F5F4F5;
 }
 
@@ -605,6 +707,11 @@
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.5s ease;
+}
+
+.projects-col-left:hover .projects-image img {
+    transform: scale(1.03);
 }
 
 /* Right column: 3 stacked cards */
@@ -625,6 +732,18 @@
     padding: 2em;
     background-color: #FFFFFF;
     box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.project-card:hover .project-card-body {
+    border-right-color: var(--color-red);
 }
 
 .project-card-body {
@@ -656,13 +775,14 @@
 
 .project-card-body strong {
     font-weight: 700;
-    color: var(--color-dark-heading);
+    color:#616379;
 }
 
 .project-card-body ul {
     list-style: disc;
     padding-left: 20px;
     margin: 0;
+    color: var(--color-dark-heading);
 }
 
 .project-card-body ul li {
@@ -694,6 +814,7 @@
     display: flex;
     flex-direction: column;
     padding: 5em 0 0;
+    overflow: visible;
 }
 
 /* base layout comes from components.css; homepage sets the wider
@@ -732,7 +853,7 @@
 .clients-swiper .swiper-button-next {
     width: 34px;
     height: 34px;
-    color: #D31F0D;
+    color: #565656;
 }
 
 .clients-swiper .swiper-button-prev::after,
@@ -741,12 +862,24 @@
     font-weight: 700;
 }
 
-.clients-swiper .swiper-pagination {
-    position: static;
-    margin-top: 24px;
+/* Pagination dots below the clients carousel — centered */
+.clients-pagination {
+    text-align: center;
+    padding-top: 24px;
 }
 
-.clients-swiper .swiper-pagination-bullet-active {
+.clients-pagination .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background: #DCDCDE;
+    opacity: 1;
+    margin: 0 3px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.clients-pagination .swiper-pagination-bullet-active {
     background: #D31F0D;
 }
 
@@ -801,13 +934,19 @@
 
     .feature-content h3 { font-size: 20px; letter-spacing: -0.8px; }
 
-    .section-about { padding: 3.5em 0 0; }
+    .section-about { padding: 45px 0 0; }
 
-    .about-row { flex-direction: column; align-items: stretch; }
+    .about-row { flex-direction: row; align-items: center; }
 
-    .about-col-text { flex: 1 1 100%; padding: 0 0 2em; }
+    .about-col-text { flex: 0 1 45%; padding: 2em 2em 2em 0; }
 
-    .about-col-image { flex: 1 1 100%; padding-top: 40px; }
+    .about-col-image { flex: 0 1 55%; padding-top: 0; }
+
+    .experience-badge { top: -200px; width: 140px; height: 140px; }
+
+    .badge-number { font-size: 52px; }
+
+    .badge-text { font-size: 12px; }
 
     .about-title { font-size: 34px; letter-spacing: -1.2px; }
 
@@ -815,7 +954,7 @@
 
     .section-stats { padding: 4.5em 0; }
 
-    .stats-heading { font-size: 32px; letter-spacing: -1px; max-width: 28ch; }
+    .stats-heading { font-size: 32px; letter-spacing: -1px; }
 
     .section-products { padding: 72px 16px; }
 
@@ -851,7 +990,7 @@
 
     .service-title { font-size: 18px; }
 
-    .service-home-card > img { height: 150px; }
+    .service-home-card > img { height: 180px; }
 
     /* Projects: columns go full width from 1024px down */
     .section-projects { padding: 1em 1em 3em; }
@@ -920,7 +1059,11 @@
 
     .section-about { padding: 2.5em 0 0; }
 
-    .about-col-text { padding: 0 0 1.5em; }
+    .about-row { flex-direction: column; align-items: stretch; }
+
+    .about-col-text { flex: 1 1 100%; padding: 0 0 1.5em; }
+
+    .about-col-image { flex: 1 1 100%; padding-top: 32px; }
 
     .about-heading-row { gap: 6px; }
 
@@ -932,7 +1075,8 @@
         width: 118px;
         height: 118px;
         padding: 10px;
-        right: 4px;
+        right: 0;
+        top: -70px;
     }
 
     .badge-number { font-size: 40px; letter-spacing: -2.5px; padding-left: 2.5px; }
@@ -960,16 +1104,16 @@
     /* artwork drops below the copy instead of behind it */
     .product-showcase-card {
         min-height: 0;
-        padding: 28px 20px 150px;
-        background-size: 55% auto;
-        background-position: center bottom 20px;
+        padding: 28px 20px 180px;
+        background-size: 45% auto;
+        background-position: center bottom 16px;
     }
 
     .product-showcase-inner { max-width: 100%; }
 
-    .product-showcase-card h3 { font-size: 24px; }
+    .product-showcase-card h3 { font-size: 24px; white-space: normal; }
 
-    .product-showcase-card p { font-size: 14px; }
+    .product-showcase-card p { font-size: 14px; white-space: normal; }
 
     .section-services { padding: 0 0 2em; }
 
@@ -1016,7 +1160,7 @@
 
     .feature-img { width: 56px; max-width: 56px; }
 
-    .product-showcase-card { padding: 24px 16px 130px; background-size: 62% auto; }
+    .product-showcase-card { padding: 24px 16px 160px; background-size: 50% auto; background-position: center bottom 12px; }
 
     .service-home-icon { padding: 16px; }
 
@@ -1050,7 +1194,7 @@
 
     .feature-card { flex-direction: column; }
 
-    .product-showcase-card { padding: 20px 14px 110px; background-size: 70% auto; }
+    .product-showcase-card { padding: 20px 14px 140px; background-size: 55% auto; background-position: center bottom 10px; }
 
     .counter-item { padding: 12px 4px; }
 }

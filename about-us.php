@@ -2,7 +2,8 @@
 require_once 'includes/config.php';
 $pageTitle = 'About Us';
 $pageDescription = 'Nani Electro Technics Pvt. Ltd. (NANI Transformers), established in 1995, is a trusted name in the design and manufacturing of high-quality transformers across capacities and configurations.';
-$additionalCSS = '<link rel="stylesheet" href="' . ASSETS_PATH . '/css/about.css">';
+$additionalCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">'
+    . '<link rel="stylesheet" href="' . ASSETS_PATH . '/css/about.css">';
 
 require_once 'includes/head.php';
 require_once 'includes/header.php';
@@ -34,7 +35,6 @@ $team = [
     ],
 ];
 ?>
-
 <!-- ============ PAGE BANNER ============ -->
 <section class="page-banner page-banner--about">
     <div class="container">
@@ -50,7 +50,7 @@ $team = [
             <div class="about-intro-text" data-animation="fadeIn">
                 <div class="about-intro-heading">
                     <span class="icon-bolt icon-bolt--red"><?php echo $bolt; ?></span>
-                    <h2>About Us</h2>
+            <h2>About Us</h2>
                 </div>
                 <p>Nani Electro Technics Pvt. Ltd. (NANI Transformers), established in 1995, is a trusted name in the design and manufacturing of high-quality transformers across capacities and configurations. Founded by Mr. S. Raghavendra Rao (B.Tech &ndash; EEE), a visionary with over four decades of experience in the transformer industry, the company has built a legacy of engineering excellence, reliability, and commitment.</p>
                 <p>Over the years, NANI Transformers has become a preferred supplier for leading industrial and infrastructure clients across India. From manufacturing robust oil-filled transformers to executing large-scale Railway Electrification Projects since 2003, our journey has been defined by quality, innovation, and an unwavering focus on customer satisfaction. With operations now expanding across <?php echo STAT_STATES_REACHED; ?> Indian states, we continue to power the nation&rsquo;s growth with superior technology and trusted performance.</p>
@@ -206,23 +206,22 @@ $team = [
 <section class="clients-section about-clients">
     <div class="container">
         <div class="clients-header">
-            <span class="icon-bolt icon-bolt--red"><?php echo $bolt; ?></span>
             <h2>Trusted by <?php echo STAT_CLIENTS_SERVED; ?> world-class brands and organizations of all sizes.</h2>
         </div>
-        <div class="clients-carousel">
-            <div class="clients-track">
-                <?php $logos = getClientLogos(); ?>
-                <?php foreach ($logos as $logo): ?>
-                    <div class="client-logo">
-                        <img src="<?php echo ASSETS_PATH; ?>/images/clients/<?php echo $logo; ?>" alt="Client logo" loading="lazy" decoding="async">
-                    </div>
-                <?php endforeach; ?>
-                <?php foreach ($logos as $logo): ?>
-                    <div class="client-logo" aria-hidden="true">
-                        <img src="<?php echo ASSETS_PATH; ?>/images/clients/<?php echo $logo; ?>" alt="" loading="lazy" decoding="async">
-                    </div>
-                <?php endforeach; ?>
+        <div class="clients-swiper-wrap">
+            <div class="swiper about-clients-swiper">
+                <div class="swiper-wrapper">
+                    <?php $logos = getClientLogos(); ?>
+                    <?php foreach ($logos as $logo): ?>
+                        <div class="swiper-slide">
+                            <img src="<?php echo ASSETS_PATH; ?>/images/clients/<?php echo $logo; ?>" alt="Client logo" loading="lazy" decoding="async">
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
+            <div class="about-clients-pagination"></div>
         </div>
     </div>
 </section>
@@ -231,3 +230,32 @@ $team = [
 require_once 'includes/footer.php';
 require_once 'includes/scripts.php';
 ?>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js" defer></script>
+<script>
+window.addEventListener('load', function () {
+    if (typeof Swiper === 'undefined') return;
+    new Swiper('.about-clients-swiper', {
+        loop: true,
+        speed: 500,
+        slidesPerView: 5,
+        spaceBetween: 80,
+        autoplay: { delay: 1000, disableOnInteraction: true, pauseOnMouseEnter: true },
+        a11y: { enabled: true },
+        navigation: {
+            nextEl: '.about-clients-swiper .swiper-button-next',
+            prevEl: '.about-clients-swiper .swiper-button-prev'
+        },
+        pagination: {
+            el: '.about-clients-pagination',
+            clickable: true
+        },
+        breakpoints: {
+            0:    { slidesPerView: 2, spaceBetween: 24 },
+            576:  { slidesPerView: 3, spaceBetween: 32 },
+            768:  { slidesPerView: 4, spaceBetween: 48 },
+            1025: { slidesPerView: 5, spaceBetween: 80 }
+        }
+    });
+});
+</script>

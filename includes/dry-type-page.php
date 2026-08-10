@@ -44,11 +44,6 @@ require_once __DIR__ . '/header.php';
                     <li><span>Voltage</span><strong><?php echo $p['volt']; ?></strong></li>
                 </ul>
 
-                <figure class="product-detail-figure">
-                    <img src="<?php echo ASSETS_PATH; ?>/images/products/<?php echo $p['image']; ?>"
-                         alt="<?php echo $p['name']; ?> — VPI Dry Type" loading="lazy" decoding="async">
-                </figure>
-
                 <p><?php echo $p['p1']; ?></p>
                 <p><?php echo $p['p2']; ?></p>
 
@@ -58,6 +53,11 @@ require_once __DIR__ . '/header.php';
                         <li><?php echo $f; ?></li>
                     <?php endforeach; ?>
                 </ul>
+
+                <figure class="product-detail-figure">
+                    <img src="<?php echo ASSETS_PATH; ?>/images/products/<?php echo $p['image']; ?>"
+                         alt="<?php echo $p['name']; ?> — VPI Dry Type" loading="lazy" decoding="async">
+                </figure>
 
                 <?php
                 require_once __DIR__ . '/product-faqs.php';

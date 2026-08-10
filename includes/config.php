@@ -14,7 +14,7 @@ csrf_start();
 
 // Site Information
 define('SITE_NAME', 'Nani Transformers');
-define('SITE_TAGLINE', 'Powering Industries Since 1995');
+define('SITE_TAGLINE', 'Powering Progress with Precision.');
 define('SITE_URL', 'https://nanitransformers.com');
 
 // Contact Information
@@ -40,7 +40,7 @@ define('SOCIAL_WHATSAPP', 'https://wa.me/919999792666');
 // These values are displayed on Home, About, Projects and PSI pages.
 define('STAT_YEARS', '30+');
 define('STAT_PROJECTS_COMPLETED', '40+');
-define('STAT_PROJECTS_ONGOING', '30');
+define('STAT_PROJECTS_ONGOING', '30+');
 define('STAT_CLIENTS_SERVED', '400+');
 define('STAT_RAILWAY_DIVISIONS', '8');
 define('STAT_STATES_REACHED', '10+');

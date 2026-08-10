@@ -20,7 +20,7 @@
     border: 0;
     border-radius: 0;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
     white-space: nowrap;
     text-decoration: none;
 }
@@ -46,6 +46,7 @@
     background-color: #FCD900;
     color: #000000;
     border-color: #FCD900;
+    transform: scale(1.05);
 }
 
 .btn-outline-dark {
@@ -58,4 +59,6 @@
 .btn-outline-dark:focus {
     background-color: #222334;
     color: #FFFFFF;
+    border-color: #222334;
+    transform: scale(1.05);
 }

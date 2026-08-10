@@ -465,5 +465,38 @@
             });
         });
 
+        /* ------------------------------------------------
+           Lightbox - click gallery image to view fullscreen
+           ------------------------------------------------ */
+        var lightbox = document.getElementById('galleryLightbox');
+        if (lightbox) {
+            var lbImg = lightbox.querySelector('.lightbox-img');
+            var lbClose = lightbox.querySelector('.lightbox-close');
+
+            document.querySelectorAll('.gallery-lightbox-img').forEach(function (img) {
+                img.addEventListener('click', function () {
+                    lbImg.src = img.src;
+                    lbImg.alt = img.alt || 'Full view';
+                    lightbox.classList.add('active');
+                    lightbox.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                lightbox.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            lbClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+            });
+        }
+
     });
 })();

@@ -29,7 +29,7 @@ $galleryBolt = '<svg aria-hidden="true" viewBox="0 0 320 512" xmlns="http://www.
             <div class="swiper-wrapper">
                 <?php foreach ($galleryImages as $g): ?>
                 <div class="swiper-slide">
-                    <img src="<?php echo ASSETS_PATH; ?>/images/projects/gallery/<?php echo $g; ?>" alt="Project gallery image" loading="lazy" decoding="async">
+                    <img src="<?php echo ASSETS_PATH; ?>/images/projects/gallery/<?php echo $g; ?>" alt="Project gallery image" loading="lazy" decoding="async" class="gallery-lightbox-img">
                 </div>
                 <?php endforeach; ?>
             </div>
@@ -39,3 +39,9 @@ $galleryBolt = '<svg aria-hidden="true" viewBox="0 0 320 512" xmlns="http://www.
         </div>
     </div>
 </section>
+
+<!-- Lightbox overlay -->
+<div class="lightbox" id="galleryLightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+    <img class="lightbox-img" src="" alt="Full view">
+</div>

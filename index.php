@@ -123,7 +123,7 @@ $clientLogos = array_merge(
                     <img src="<?php echo ASSETS_PATH; ?>/images/who-we-are.jpg" alt="Nani Transformers manufacturing facility" width="684" height="455" class="about-main-img" loading="lazy" decoding="async">
                 </div>
                 <div class="experience-badge" data-animation="bounceIn">
-                    <span class="badge-number">30+</span>
+                    <span class="badge-number"><span class="counter" data-target="30">0</span>+</span>
                     <span class="badge-text">Years of Experience</span>
                 </div>
             </div>
@@ -251,8 +251,8 @@ $clientLogos = array_merge(
                 </div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
-                <div class="swiper-pagination"></div>
             </div>
+            <div class="clients-pagination"></div>
         </div>
     </div>
 </section>
@@ -321,13 +321,14 @@ $clientLogos = array_merge(
 window.addEventListener('load', function () {
     if (typeof Swiper === 'undefined') return;
 
-    // Hero: 5000ms autoplay / 500ms slide, matching the original.
+    // Hero: 5000ms autoplay / 500ms fade, matching the original.
     // autoHeight lets the wrapper follow the uncropped image height.
     var instances = [
         new Swiper('.hero-swiper', {
             loop: true,
             speed: 500,
-            effect: 'slide',
+            effect: 'fade',
+            fadeEffect: { crossFade: true },
             autoHeight: true,
             autoplay: { delay: 5000, disableOnInteraction: true, pauseOnMouseEnter: true },
             keyboard: { enabled: true },
@@ -354,9 +355,8 @@ window.addEventListener('load', function () {
             prevEl: '.clients-swiper .swiper-button-prev'
         },
         pagination: {
-            el: '.clients-swiper .swiper-pagination',
-            clickable: true,
-            dynamicBullets: true
+            el: '.clients-pagination',
+            clickable: true
         },
         breakpoints: {
             0:    { slidesPerView: 2, spaceBetween: 24 },
