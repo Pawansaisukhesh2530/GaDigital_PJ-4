@@ -139,21 +139,6 @@
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-.feature-card:hover .feature-img img {
-    transform: scale(1.06);
-}
-
-.feature-card:hover .feature-content h3,
-.feature-card:hover .feature-content p {
-    color: var(--color-red);
 }
 
 .feature-card--red:hover .feature-content h3,
@@ -195,9 +180,6 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    border-radius: 12px;
-    overflow: hidden;
 }
 
 .about-col-text {
@@ -833,7 +815,7 @@
 }
 
 .clients-swiper-wrap {
-    padding: 50px;
+    padding: 30px 0;
 }
 
 .clients-swiper .swiper-slide {
@@ -841,12 +823,13 @@
     align-items: center;
     justify-content: center;
     height: auto;
+    padding: 10px;
 }
 
 .clients-swiper .swiper-slide img {
     max-width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 80px;
+    object-fit: contain !important;
 }
 
 .clients-swiper .swiper-button-prev,

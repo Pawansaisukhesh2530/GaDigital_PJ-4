@@ -101,19 +101,26 @@ $galleryImages = [
 
 <?php require_once 'includes/project-gallery.php'; ?>
 
-<!-- Railway Clients -->
+<!-- Railway Clients - Swiper carousel matching original -->
 <section class="railway-clients">
     <div class="container">
         <div class="notable-header">
             <span class="icon-bolt icon-bolt--red"><?php echo $bolt; ?></span>
             <h2>Our Clients</h2>
         </div>
-        <div class="railway-clients-grid">
-            <?php foreach ($railwayClients as $logo): ?>
-            <div class="railway-client-logo">
-                <img src="<?php echo ASSETS_PATH; ?>/images/projects/clients/<?php echo $logo; ?>" alt="Railway client" loading="lazy">
+        <div class="railway-swiper-wrap">
+            <div class="swiper railway-swiper">
+                <div class="swiper-wrapper">
+                    <?php foreach ($railwayClients as $logo): ?>
+                    <div class="swiper-slide">
+                        <img src="<?php echo ASSETS_PATH; ?>/images/projects/clients/<?php echo $logo; ?>" alt="Railway client" loading="lazy">
+                    </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
-            <?php endforeach; ?>
+            <div class="railway-pagination"></div>
         </div>
     </div>
 </section>
@@ -134,6 +141,21 @@ $galleryImages = [
             breakpoints: {
                 640: { slidesPerView: 2, spaceBetween: 10 },
                 1025: { slidesPerView: 3, spaceBetween: 10 }
+            }
+        });
+        new Swiper('.railway-swiper', {
+            slidesPerView: 7,
+            spaceBetween: 20,
+            loop: true,
+            speed: 500,
+            autoplay: { delay: 2000, disableOnInteraction: true, pauseOnMouseEnter: true },
+            navigation: { nextEl: '.railway-swiper .swiper-button-next', prevEl: '.railway-swiper .swiper-button-prev' },
+            pagination: { el: '.railway-pagination', clickable: true },
+            breakpoints: {
+                0:    { slidesPerView: 3, spaceBetween: 16 },
+                576:  { slidesPerView: 4, spaceBetween: 20 },
+                768:  { slidesPerView: 5, spaceBetween: 20 },
+                1025: { slidesPerView: 7, spaceBetween: 20 }
             }
         });
     });
