@@ -80,7 +80,7 @@ $clientLogos = array_merge(
             </div>
             <div class="feature-card">
                 <div class="feature-img">
-                    <img src="<?php echo ASSETS_PATH; ?>/icons/advanced-manufacturing.gif" alt="" width="375" height="375" loading="lazy" decoding="async">
+                    <img src="<?php echo ASSETS_PATH; ?>/icons/Advanced-Manufacturing.gif" alt="" width="375" height="375" loading="lazy" decoding="async">
                 </div>
                 <div class="feature-content">
                     <h3>Advanced Manufacturing</h3>
@@ -89,7 +89,7 @@ $clientLogos = array_merge(
             </div>
             <div class="feature-card feature-card--red">
                 <div class="feature-img">
-                    <img src="<?php echo ASSETS_PATH; ?>/icons/complete-power-solutions.gif" alt="" width="375" height="375" loading="lazy" decoding="async">
+                    <img src="<?php echo ASSETS_PATH; ?>/icons/Complete-Power-Solutions.gif" alt="" width="375" height="375" loading="lazy" decoding="async">
                 </div>
                 <div class="feature-content">
                     <h3>Complete Power Solutions</h3>
