@@ -520,10 +520,10 @@
     transform: scale(1.04);
 }
 
-/* Railway clients for project pages */
+/* Railway clients section */
 .railway-clients {
     padding: 4em 0;
-    background-color: #F5F4F5;
+    background-color: #FFFFFF;
 }
 
 .railway-clients h2 {
@@ -700,7 +700,7 @@
 
 .railway-swiper .swiper-slide img {
     max-width: 100%;
-    height: 80px;
+    height: 100px;
     object-fit: contain !important;
 }
 

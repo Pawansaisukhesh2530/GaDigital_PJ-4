@@ -68,7 +68,7 @@
     align-items: center;
     gap: 16px;
     width: max-content;
-    animation: scroll-clients 45s linear infinite;
+    animation: scroll-clients 100s linear infinite;
 }
 
 .clients-carousel:hover .clients-track {
@@ -140,7 +140,7 @@
 
     .clients-track {
         gap: 20px;
-        animation-duration: 35s;
+        animation-duration: 60s;
     }
 }
 

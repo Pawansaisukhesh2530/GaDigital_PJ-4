@@ -243,7 +243,7 @@
    heading and right-aligned in the image column (above the image). */
 .experience-badge {
     position: absolute;
-    top: -125px;
+    top: -80px;
     right: 0;
     width: 175px;
     height: 175px;
@@ -925,7 +925,7 @@
 
     .about-col-image { flex: 0 1 55%; padding-top: 0; }
 
-    .experience-badge { top: -200px; width: 140px; height: 140px; }
+    .experience-badge { top: -120px; width: 140px; height: 140px; }
 
     .badge-number { font-size: 52px; }
 

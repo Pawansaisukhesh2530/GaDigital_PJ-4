@@ -147,8 +147,8 @@ $galleryImages = [
             slidesPerView: 7,
             spaceBetween: 20,
             loop: true,
-            speed: 500,
-            autoplay: { delay: 2000, disableOnInteraction: true, pauseOnMouseEnter: true },
+            speed: 800,
+            autoplay: { delay: 800, disableOnInteraction: false, pauseOnMouseEnter: true },
             navigation: { nextEl: '.railway-swiper .swiper-button-next', prevEl: '.railway-swiper .swiper-button-prev' },
             pagination: { el: '.railway-pagination', clickable: true },
             breakpoints: {
