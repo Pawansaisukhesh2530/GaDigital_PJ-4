@@ -445,14 +445,7 @@
 }
 
 .product-showcase-card:hover {
-    transform: translateY(-8px);
-    background-color: rgba(0,0,0,0.8);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-.product-showcase-card:hover h3,
-.product-showcase-card:hover p {
-    color: #FFFFFF;
+    /* hover removed */
 }
 
 .product-showcase-inner {
@@ -534,12 +527,6 @@
     letter-spacing: -1px;
     color: var(--color-dark-heading);
     margin-bottom: 0;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.services-header:hover h2 {
-    transform: scale(1.03);
-    color: var(--color-red);
 }
 
 .services-grid {
@@ -557,21 +544,11 @@
     box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     overflow: hidden;
-    transition: border-color 1s ease, transform 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease;
+    transition: border-color 1s ease;
 }
 
 .service-home-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     border-bottom-color: #D31F0D;
-}
-
-.service-home-card:hover .service-title {
-    color: var(--color-red);
-}
-
-.service-home-card:hover .service-home-icon {
-    transform: scale(1.1);
 }
 
 .service-home-icon {
