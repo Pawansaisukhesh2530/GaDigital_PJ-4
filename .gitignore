@@ -20,3 +20,6 @@ uploads/resumes/*
 # (and every Docker image built from a clone) protects the uploads dir.
 !uploads/resumes/.htaccess
 !uploads/resumes/index.html
+
+# IDE config
+.continue/
